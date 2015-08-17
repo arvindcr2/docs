@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>TEES.Classifiers.SKLearnSVMWrapper</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TEES-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="TEES-module.html">Package&nbsp;TEES</a> ::
+        <a href="TEES.Classifiers-module.html">Package&nbsp;Classifiers</a> ::
+        Module&nbsp;SKLearnSVMWrapper
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="TEES.Classifiers.SKLearnSVMWrapper-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="TEES.Classifiers.SKLearnSVMWrapper-module.html">Module TEES.Classifiers.SKLearnSVMWrapper</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt><tt class="py-name">os</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">sklearn</tt><tt class="py-op">.</tt><tt class="py-name">datasets</tt> <tt class="py-keyword">import</tt> <tt class="py-name">load_svmlight_file</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-comment">#from sklearn.externals import joblib</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">pickle</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">abspath</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">"/.."</tt><tt class="py-op">)</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="getClassifier"></a><div id="getClassifier-def"><a name="L7"></a><tt class="py-lineno">  7</tt> <a class="py-toggle" href="#" id="getClassifier-toggle" onclick="return toggle('getClassifier');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Classifiers.SKLearnSVMWrapper-module.html#getClassifier">getClassifier</a><tt class="py-op">(</tt><tt class="py-param">id</tt><tt class="py-op">,</tt> <tt class="py-param">params</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getClassifier-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getClassifier-expanded"><a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line">    <tt id="link-0" class="py-name" targets="Function TEES.Utils.STFormat.STTools.package()=TEES.Utils.STFormat.STTools-module.html#package"><a title="TEES.Utils.STFormat.STTools.package" class="py-name" href="#" onclick="return doclink('link-0', 'package', 'link-0');">package</a></tt><tt class="py-op">,</tt> <tt class="py-name">cls</tt> <tt class="py-op">=</tt> <tt class="py-name">id</tt><tt class="py-op">.</tt><tt class="py-name">rsplit</tt><tt class="py-op">(</tt><tt class="py-string">'.'</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line">    <tt class="py-name">prefix</tt> <tt class="py-op">=</tt> <tt class="py-string">"sklearn."</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt id="link-1" class="py-name"><a title="TEES.Utils.STFormat.STTools.package" class="py-name" href="#" onclick="return doclink('link-1', 'package', 'link-0');">package</a></tt> <tt class="py-op">==</tt> <tt class="py-string">"elm"</tt><tt class="py-op">:</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">        <tt class="py-name">prefix</tt> <tt class="py-op">=</tt> <tt class="py-string">"Utils.Libraries.PythonELM."</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line">    <tt class="py-comment">#print "from " + prefix + package + " import " + cls + " as " + cls</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">    <tt class="py-keyword">exec</tt> <tt class="py-string">"from "</tt> <tt class="py-op">+</tt> <tt class="py-name">prefix</tt> <tt class="py-op">+</tt> <tt id="link-2" class="py-name"><a title="TEES.Utils.STFormat.STTools.package" class="py-name" href="#" onclick="return doclink('link-2', 'package', 'link-0');">package</a></tt> <tt class="py-op">+</tt> <tt class="py-string">" import "</tt> <tt class="py-op">+</tt> <tt class="py-name">cls</tt> <tt class="py-op">+</tt> <tt class="py-string">" as "</tt> <tt class="py-op">+</tt> <tt class="py-name">cls</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">eval</tt><tt class="py-op">(</tt><tt class="py-name">cls</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"> </tt>
+<a name="saveClf"></a><div id="saveClf-def"><a name="L16"></a><tt class="py-lineno"> 16</tt> <a class="py-toggle" href="#" id="saveClf-toggle" onclick="return toggle('saveClf');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Classifiers.SKLearnSVMWrapper-module.html#saveClf">saveClf</a><tt class="py-op">(</tt><tt class="py-param">clf</tt><tt class="py-op">,</tt> <tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="saveClf-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="saveClf-expanded"><a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">    <tt id="link-3" class="py-name" targets="Variable TEES.Utils.Convert.processLPSN.f=TEES.Utils.Convert.processLPSN-module.html#f,Function TEES.Utils.STFormat.Scores.f()=TEES.Utils.STFormat.Scores-module.html#f"><a title="TEES.Utils.Convert.processLPSN.f
+TEES.Utils.STFormat.Scores.f" class="py-name" href="#" onclick="return doclink('link-3', 'f', 'link-3');">f</a></tt> <tt class="py-op">=</tt> <tt id="link-4" class="py-name" targets="Method TEES.Core.Model.Model.open()=TEES.Core.Model.Model-class.html#open"><a title="TEES.Core.Model.Model.open" class="py-name" href="#" onclick="return doclink('link-4', 'open', 'link-4');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">"w"</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt class="py-name">dump</tt><tt class="py-op">(</tt><tt class="py-name">clf</tt><tt class="py-op">,</tt> <tt id="link-5" class="py-name"><a title="TEES.Utils.Convert.processLPSN.f
+TEES.Utils.STFormat.Scores.f" class="py-name" href="#" onclick="return doclink('link-5', 'f', 'link-3');">f</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt id="link-6" class="py-name"><a title="TEES.Utils.Convert.processLPSN.f
+TEES.Utils.STFormat.Scores.f" class="py-name" href="#" onclick="return doclink('link-6', 'f', 'link-3');">f</a></tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method TEES.Core.Model.Model.close()=TEES.Core.Model.Model-class.html#close,Method TEES.Utils.ElementTreeUtils.ETWriter.close()=TEES.Utils.ElementTreeUtils.ETWriter-class.html#close"><a title="TEES.Core.Model.Model.close
+TEES.Utils.ElementTreeUtils.ETWriter.close" class="py-name" href="#" onclick="return doclink('link-7', 'close', 'link-7');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">filename</tt> </tt>
+</div><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="loadClf"></a><div id="loadClf-def"><a name="L22"></a><tt class="py-lineno"> 22</tt> <a class="py-toggle" href="#" id="loadClf-toggle" onclick="return toggle('loadClf');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Classifiers.SKLearnSVMWrapper-module.html#loadClf">loadClf</a><tt class="py-op">(</tt><tt class="py-param">filename</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="loadClf-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="loadClf-expanded"><a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">    <tt id="link-8" class="py-name"><a title="TEES.Utils.Convert.processLPSN.f
+TEES.Utils.STFormat.Scores.f" class="py-name" href="#" onclick="return doclink('link-8', 'f', 'link-3');">f</a></tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="TEES.Core.Model.Model.open" class="py-name" href="#" onclick="return doclink('link-9', 'open', 'link-4');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">filename</tt><tt class="py-op">,</tt> <tt class="py-string">"r"</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">    <tt class="py-name">clf</tt> <tt class="py-op">=</tt> <tt class="py-name">pickle</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method TEES.Core.IdSet.IdSet.load()=TEES.Core.IdSet.IdSet-class.html#load,Method TEES.Detectors.StructureAnalyzer.Argument.load()=TEES.Detectors.StructureAnalyzer.Argument-class.html#load,Method TEES.Detectors.StructureAnalyzer.Entity.load()=TEES.Detectors.StructureAnalyzer.Entity-class.html#load,Method TEES.Detectors.StructureAnalyzer.Event.load()=TEES.Detectors.StructureAnalyzer.Event-class.html#load,Method TEES.Detectors.StructureAnalyzer.Group.load()=TEES.Detectors.StructureAnalyzer.Group-class.html#load,Method TEES.Detectors.StructureAnalyzer.Modifier.load()=TEES.Detectors.StructureAnalyzer.Modifier-class.html#load,Method TEES.Detectors.StructureAnalyzer.Relation.load()=TEES.Detectors.StructureAnalyzer.Relation-class.html#load,Method TEES.Detectors.StructureAnalyzer.StructureAnalyzer.load()=TEES.Detectors.StructureAnalyzer.StructureAnalyzer-class.html#load,Method TEES.Utils.STFormat.STTools.Document.load()=TEES.Utils.STFormat.STTools.Document-class.html#load"><a title="TEES.Core.IdSet.IdSet.load
+TEES.Detectors.StructureAnalyzer.Argument.load
+TEES.Detectors.StructureAnalyzer.Entity.load
+TEES.Detectors.StructureAnalyzer.Event.load
+TEES.Detectors.StructureAnalyzer.Group.load
+TEES.Detectors.StructureAnalyzer.Modifier.load
+TEES.Detectors.StructureAnalyzer.Relation.load
+TEES.Detectors.StructureAnalyzer.StructureAnalyzer.load
+TEES.Utils.STFormat.STTools.Document.load" class="py-name" href="#" onclick="return doclink('link-10', 'load', 'link-10');">load</a></tt><tt class="py-op">(</tt><tt id="link-11" class="py-name"><a title="TEES.Utils.Convert.processLPSN.f
+TEES.Utils.STFormat.Scores.f" class="py-name" href="#" onclick="return doclink('link-11', 'f', 'link-3');">f</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">    <tt id="link-12" class="py-name"><a title="TEES.Utils.Convert.processLPSN.f
+TEES.Utils.STFormat.Scores.f" class="py-name" href="#" onclick="return doclink('link-12', 'f', 'link-3');">f</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="TEES.Core.Model.Model.close
+TEES.Utils.ElementTreeUtils.ETWriter.close" class="py-name" href="#" onclick="return doclink('link-13', 'close', 'link-7');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">clf</tt> </tt>
+</div><a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"> </tt>
+<a name="train"></a><div id="train-def"><a name="L28"></a><tt class="py-lineno"> 28</tt> <a class="py-toggle" href="#" id="train-toggle" onclick="return toggle('train');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Classifiers.SKLearnSVMWrapper-module.html#train">train</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="train-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="train-expanded"><a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">    <tt class="py-name">params</tt><tt class="py-op">,</tt> <tt class="py-name">files</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name" targets="Function TEES.Classifiers.SKLearnSVMWrapper.getParameters()=TEES.Classifiers.SKLearnSVMWrapper-module.html#getParameters,Method TEES.Detectors.ToolChain.ToolChain.getParameters()=TEES.Detectors.ToolChain.ToolChain-class.html#getParameters,Method TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.getParameters()=TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder-class.html#getParameters"><a title="TEES.Classifiers.SKLearnSVMWrapper.getParameters
+TEES.Detectors.ToolChain.ToolChain.getParameters
+TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.getParameters" class="py-name" href="#" onclick="return doclink('link-14', 'getParameters', 'link-14');">getParameters</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"examples"</tt><tt class="py-op">,</tt> <tt class="py-string">"model"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">    <tt class="py-name">clfName</tt> <tt class="py-op">=</tt> <tt class="py-name">params</tt><tt class="py-op">[</tt><tt class="py-string">"scikit"</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">    <tt class="py-keyword">del</tt> <tt class="py-name">params</tt><tt class="py-op">[</tt><tt class="py-string">"scikit"</tt><tt class="py-op">]</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">    <tt class="py-name">useProbability</tt> <tt class="py-op">=</tt> <tt class="py-string">"probability"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">params</tt> <tt class="py-keyword">and</tt> <tt class="py-name">params</tt><tt class="py-op">[</tt><tt class="py-string">"probability"</tt><tt class="py-op">]</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">useProbability</tt> <tt class="py-keyword">and</tt> <tt class="py-name">clfName</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-op">[</tt><tt class="py-string">"svm.SVC"</tt><tt class="py-op">,</tt> <tt class="py-string">"svm.NuSVC"</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-keyword">del</tt> <tt class="py-name">params</tt><tt class="py-op">[</tt><tt class="py-string">"probability"</tt><tt class="py-op">]</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt class="py-comment">#print params, files</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-name">clfClass</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name" targets="Function TEES.Classifiers.SKLearnSVMWrapper.getClassifier()=TEES.Classifiers.SKLearnSVMWrapper-module.html#getClassifier,Method TEES.Detectors.Detector.Detector.getClassifier()=TEES.Detectors.Detector.Detector-class.html#getClassifier"><a title="TEES.Classifiers.SKLearnSVMWrapper.getClassifier
+TEES.Detectors.Detector.Detector.getClassifier" class="py-name" href="#" onclick="return doclink('link-15', 'getClassifier', 'link-15');">getClassifier</a></tt><tt class="py-op">(</tt><tt class="py-name">clfName</tt><tt class="py-op">,</tt> <tt class="py-name">params</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">    <tt class="py-name">clf</tt> <tt class="py-op">=</tt> <tt class="py-name">clfClass</tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">params</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">    <tt class="py-name">X_train</tt><tt class="py-op">,</tt> <tt class="py-name">y_train</tt> <tt class="py-op">=</tt> <tt class="py-name">load_svmlight_file</tt><tt class="py-op">(</tt><tt class="py-name">files</tt><tt class="py-op">[</tt><tt class="py-string">"examples"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-comment">#print X_train.shape[1]</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">    <tt class="py-name">clf</tt><tt class="py-op">.</tt><tt class="py-name">teesFeatureCount</tt> <tt class="py-op">=</tt> <tt class="py-name">X_train</tt><tt class="py-op">.</tt><tt class="py-name">shape</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-comment"># store the size with a unique name</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">useProbability</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">clf</tt><tt class="py-op">.</tt><tt class="py-name">teesProba</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">clf</tt><tt class="py-op">.</tt><tt class="py-name">teesProba</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Training"</tt><tt class="py-op">,</tt> <tt class="py-name">clfName</tt><tt class="py-op">,</tt> <tt class="py-string">"with arguments"</tt><tt class="py-op">,</tt> <tt class="py-name">params</tt><tt class="py-op">,</tt> <tt class="py-string">"and files"</tt><tt class="py-op">,</tt> <tt class="py-name">files</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-name">clf</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method TEES.Utils.Libraries.PythonELM.elm.BaseELM.fit()=TEES.Utils.Libraries.PythonELM.elm.BaseELM-class.html#fit,Method TEES.Utils.Libraries.PythonELM.elm.ELMClassifier.fit()=TEES.Utils.Libraries.PythonELM.elm.ELMClassifier-class.html#fit,Method TEES.Utils.Libraries.PythonELM.elm.ELMRegressor.fit()=TEES.Utils.Libraries.PythonELM.elm.ELMRegressor-class.html#fit,Method TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier.fit()=TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier-class.html#fit,Method TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor.fit()=TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor-class.html#fit,Method TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer.fit()=TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#fit"><a title="TEES.Utils.Libraries.PythonELM.elm.BaseELM.fit
+TEES.Utils.Libraries.PythonELM.elm.ELMClassifier.fit
+TEES.Utils.Libraries.PythonELM.elm.ELMRegressor.fit
+TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier.fit
+TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor.fit
+TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer.fit" class="py-name" href="#" onclick="return doclink('link-16', 'fit', 'link-16');">fit</a></tt><tt class="py-op">(</tt><tt class="py-name">X_train</tt><tt class="py-op">,</tt> <tt class="py-name">y_train</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-name">clfName</tt><tt class="py-op">,</tt> <tt class="py-string">"model saved to"</tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name" targets="Function TEES.Classifiers.SKLearnSVMWrapper.saveClf()=TEES.Classifiers.SKLearnSVMWrapper-module.html#saveClf"><a title="TEES.Classifiers.SKLearnSVMWrapper.saveClf" class="py-name" href="#" onclick="return doclink('link-17', 'saveClf', 'link-17');">saveClf</a></tt><tt class="py-op">(</tt><tt class="py-name">clf</tt><tt class="py-op">,</tt> <tt class="py-name">files</tt><tt class="py-op">[</tt><tt class="py-string">"model"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="classify"></a><div id="classify-def"><a name="L49"></a><tt class="py-lineno"> 49</tt> <a class="py-toggle" href="#" id="classify-toggle" onclick="return toggle('classify');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Classifiers.SKLearnSVMWrapper-module.html#classify">classify</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="classify-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="classify-expanded"><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-name">params</tt><tt class="py-op">,</tt> <tt class="py-name">files</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="TEES.Classifiers.SKLearnSVMWrapper.getParameters
+TEES.Detectors.ToolChain.ToolChain.getParameters
+TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.getParameters" class="py-name" href="#" onclick="return doclink('link-18', 'getParameters', 'link-14');">getParameters</a></tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-string">"examples"</tt><tt class="py-op">,</tt> <tt class="py-string">"model"</tt><tt class="py-op">,</tt> <tt class="py-string">"predictions"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-name">clf</tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name" targets="Function TEES.Classifiers.SKLearnSVMWrapper.loadClf()=TEES.Classifiers.SKLearnSVMWrapper-module.html#loadClf"><a title="TEES.Classifiers.SKLearnSVMWrapper.loadClf" class="py-name" href="#" onclick="return doclink('link-19', 'loadClf', 'link-19');">loadClf</a></tt><tt class="py-op">(</tt><tt class="py-name">files</tt><tt class="py-op">[</tt><tt class="py-string">"model"</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">    <tt class="py-comment">#print dir(clf)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">    <tt class="py-comment">#print clf.shape_fit_</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Classifying files"</tt><tt class="py-op">,</tt> <tt class="py-name">files</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">    <tt class="py-name">X_train</tt><tt class="py-op">,</tt> <tt class="py-name">y_train</tt> <tt class="py-op">=</tt> <tt class="py-name">load_svmlight_file</tt><tt class="py-op">(</tt><tt class="py-name">files</tt><tt class="py-op">[</tt><tt class="py-string">"examples"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">clf</tt><tt class="py-op">.</tt><tt class="py-name">teesFeatureCount</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-name">out</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="TEES.Core.Model.Model.open" class="py-name" href="#" onclick="return doclink('link-20', 'open', 'link-4');">open</a></tt><tt class="py-op">(</tt><tt class="py-name">files</tt><tt class="py-op">[</tt><tt class="py-string">"predictions"</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-string">"wt"</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">clf</tt><tt class="py-op">.</tt><tt class="py-name">teesProba</tt><tt class="py-op">:</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">prediction</tt> <tt class="py-keyword">in</tt> <tt class="py-name">clf</tt><tt class="py-op">.</tt><tt class="py-name">predict_proba</tt><tt class="py-op">(</tt><tt class="py-name">X_train</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">            <tt class="py-name">classMax</tt> <tt class="py-op">=</tt> <tt class="py-name">prediction</tt><tt class="py-op">.</tt><tt class="py-name">argmax</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">            <tt class="py-name">out</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method TEES.Core.IdSet.IdSet.write()=TEES.Core.IdSet.IdSet-class.html#write,Class Method TEES.ExampleWriters.BioTextExampleWriter.BioTextExampleWriter.write()=TEES.ExampleWriters.BioTextExampleWriter.BioTextExampleWriter-class.html#write,Method TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter.write()=TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter-class.html#write,Method TEES.Utils.ElementTreeUtils.ETWriter.write()=TEES.Utils.ElementTreeUtils.ETWriter-class.html#write,Function TEES.Utils.ElementTreeUtils.write()=TEES.Utils.ElementTreeUtils-module.html#write,Method TEES.Utils.Stream.StreamModifier.write()=TEES.Utils.Stream.StreamModifier-class.html#write"><a title="TEES.Core.IdSet.IdSet.write
+TEES.ExampleWriters.BioTextExampleWriter.BioTextExampleWriter.write
+TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter.write
+TEES.Utils.ElementTreeUtils.ETWriter.write
+TEES.Utils.ElementTreeUtils.write
+TEES.Utils.Stream.StreamModifier.write" class="py-name" href="#" onclick="return doclink('link-21', 'write', 'link-21');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">classMax</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">" "</tt> <tt class="py-op">+</tt> <tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-string">" "</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">x</tt><tt class="py-op">)</tt> <tt class="py-keyword">for</tt> <tt class="py-name">x</tt> <tt class="py-keyword">in</tt> <tt class="py-name">prediction</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">"\n"</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">prediction</tt> <tt class="py-keyword">in</tt> <tt class="py-name">clf</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Method TEES.Utils.Libraries.PythonELM.elm.BaseELM.predict()=TEES.Utils.Libraries.PythonELM.elm.BaseELM-class.html#predict,Method TEES.Utils.Libraries.PythonELM.elm.ELMClassifier.predict()=TEES.Utils.Libraries.PythonELM.elm.ELMClassifier-class.html#predict,Method TEES.Utils.Libraries.PythonELM.elm.ELMRegressor.predict()=TEES.Utils.Libraries.PythonELM.elm.ELMRegressor-class.html#predict,Method TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier.predict()=TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier-class.html#predict,Method TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor.predict()=TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor-class.html#predict"><a title="TEES.Utils.Libraries.PythonELM.elm.BaseELM.predict
+TEES.Utils.Libraries.PythonELM.elm.ELMClassifier.predict
+TEES.Utils.Libraries.PythonELM.elm.ELMRegressor.predict
+TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier.predict
+TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor.predict" class="py-name" href="#" onclick="return doclink('link-22', 'predict', 'link-22');">predict</a></tt><tt class="py-op">(</tt><tt class="py-name">X_train</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">            <tt class="py-name">out</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="TEES.Core.IdSet.IdSet.write
+TEES.ExampleWriters.BioTextExampleWriter.BioTextExampleWriter.write
+TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter.write
+TEES.Utils.ElementTreeUtils.ETWriter.write
+TEES.Utils.ElementTreeUtils.write
+TEES.Utils.Stream.StreamModifier.write" class="py-name" href="#" onclick="return doclink('link-23', 'write', 'link-21');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">str</tt><tt class="py-op">(</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">prediction</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-string">"\n"</tt><tt class="py-op">)</tt>         </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">    <tt class="py-name">out</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="TEES.Core.Model.Model.close
+TEES.Utils.ElementTreeUtils.ETWriter.close" class="py-name" href="#" onclick="return doclink('link-24', 'close', 'link-7');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="getParameters"></a><div id="getParameters-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="getParameters-toggle" onclick="return toggle('getParameters');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Classifiers.SKLearnSVMWrapper-module.html#getParameters">getParameters</a><tt class="py-op">(</tt><tt class="py-param">requireWrapperParams</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="getParameters-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="getParameters-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt class="py-name">params</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">    <tt class="py-name">wrapperParams</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">    <tt class="py-name">argName</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">arg</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">argv</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">:</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">arg</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"-"</tt><tt class="py-op">:</tt> <tt class="py-comment"># get argument name</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-name">argName</tt> <tt class="py-op">=</tt> <tt class="py-name">arg</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> <tt class="py-comment"># get argument value</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">argName</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">"Unnamed argument '"</tt> <tt class="py-op">+</tt> <tt class="py-name">arg</tt> <tt class="py-op">+</tt> <tt class="py-string">"'"</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-comment"># determine where to put the argument</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">argName</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"--"</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                <tt class="py-name">targetDict</tt> <tt class="py-op">=</tt> <tt class="py-name">wrapperParams</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-name">targetDict</tt> <tt class="py-op">=</tt> <tt class="py-name">params</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">            <tt class="py-comment"># process argument</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">            <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                <tt class="py-name">targetDict</tt><tt class="py-op">[</tt><tt class="py-name">argName</tt><tt class="py-op">.</tt><tt class="py-name">lstrip</tt><tt class="py-op">(</tt><tt class="py-string">"-"</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">eval</tt><tt class="py-op">(</tt><tt class="py-name">arg</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">            <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt class="py-name">targetDict</tt><tt class="py-op">[</tt><tt class="py-name">argName</tt><tt class="py-op">.</tt><tt class="py-name">lstrip</tt><tt class="py-op">(</tt><tt class="py-string">"-"</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">arg</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">            <tt class="py-name">argName</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">required</tt> <tt class="py-keyword">in</tt> <tt class="py-name">requireWrapperParams</tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">required</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">wrapperParams</tt><tt class="py-op">:</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">            <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">"Missing scikit-learn wrapper parameter '"</tt> <tt class="py-op">+</tt> <tt class="py-name">required</tt> <tt class="py-op">+</tt> <tt class="py-string">"'"</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">params</tt><tt class="py-op">,</tt> <tt class="py-name">wrapperParams</tt> </tt>
+</div><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt><tt class="py-op">==</tt><tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">    <tt class="py-comment"># Import Psyco if available</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">psyco</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-name">psyco</tt><tt class="py-op">.</tt><tt class="py-name">full</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Found Psyco, using"</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Psyco not installed"</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">     </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-string">"--classify"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">argv</tt> <tt class="py-keyword">and</tt> <tt class="py-string">"--train"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">argv</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">"Only one of --train and --classify must be defined"</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-string">"--classify"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">argv</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt id="link-25" class="py-name" targets="Method TEES.Classifiers.AllCorrectClassifier.AllCorrectClassifier.classify()=TEES.Classifiers.AllCorrectClassifier.AllCorrectClassifier-class.html#classify,Method TEES.Classifiers.Classifier.Classifier.classify()=TEES.Classifiers.Classifier.Classifier-class.html#classify,Method TEES.Classifiers.ExternalClassifier.ExternalClassifier.classify()=TEES.Classifiers.ExternalClassifier.ExternalClassifier-class.html#classify,Function TEES.Classifiers.SKLearnSVMWrapper.classify()=TEES.Classifiers.SKLearnSVMWrapper-module.html#classify,Method TEES.Detectors.Detector.Detector.classify()=TEES.Detectors.Detector.Detector-class.html#classify,Method TEES.Detectors.EventDetector.EventDetector.classify()=TEES.Detectors.EventDetector.EventDetector-class.html#classify,Method TEES.Detectors.SingleStageDetector.SingleStageDetector.classify()=TEES.Detectors.SingleStageDetector.SingleStageDetector-class.html#classify,Module TEES.classify=TEES.classify-module.html,Function TEES.classify.classify()=TEES.classify-module.html#classify"><a title="TEES.Classifiers.AllCorrectClassifier.AllCorrectClassifier.classify
+TEES.Classifiers.Classifier.Classifier.classify
+TEES.Classifiers.ExternalClassifier.ExternalClassifier.classify
+TEES.Classifiers.SKLearnSVMWrapper.classify
+TEES.Detectors.Detector.Detector.classify
+TEES.Detectors.EventDetector.EventDetector.classify
+TEES.Detectors.SingleStageDetector.SingleStageDetector.classify
+TEES.classify
+TEES.classify.classify" class="py-name" href="#" onclick="return doclink('link-25', 'classify', 'link-25');">classify</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-string">"--train"</tt> <tt class="py-keyword">in</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">argv</tt><tt class="py-op">:</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt id="link-26" class="py-name" targets="Class Method TEES.Classifiers.AllTrueClassifier.AllTrueClassifier.train()=TEES.Classifiers.AllTrueClassifier.AllTrueClassifier-class.html#train,Method TEES.Classifiers.Classifier.Classifier.train()=TEES.Classifiers.Classifier.Classifier-class.html#train,Method TEES.Classifiers.ExternalClassifier.ExternalClassifier.train()=TEES.Classifiers.ExternalClassifier.ExternalClassifier-class.html#train,Function TEES.Classifiers.SKLearnSVMWrapper.train()=TEES.Classifiers.SKLearnSVMWrapper-module.html#train,Method TEES.Detectors.Detector.Detector.train()=TEES.Detectors.Detector.Detector-class.html#train,Method TEES.Detectors.EventDetector.EventDetector.train()=TEES.Detectors.EventDetector.EventDetector-class.html#train,Method TEES.Detectors.SingleStageDetector.SingleStageDetector.train()=TEES.Detectors.SingleStageDetector.SingleStageDetector-class.html#train,Module TEES.train=TEES.train-module.html,Function TEES.train.train()=TEES.train-module.html#train"><a title="TEES.Classifiers.AllTrueClassifier.AllTrueClassifier.train
+TEES.Classifiers.Classifier.Classifier.train
+TEES.Classifiers.ExternalClassifier.ExternalClassifier.train
+TEES.Classifiers.SKLearnSVMWrapper.train
+TEES.Detectors.Detector.Detector.train
+TEES.Detectors.EventDetector.EventDetector.train
+TEES.Detectors.SingleStageDetector.SingleStageDetector.train
+TEES.train
+TEES.train.train" class="py-name" href="#" onclick="return doclink('link-26', 'train', 'link-26');">train</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">Exception</tt><tt class="py-op">(</tt><tt class="py-string">"Either --train or --classify must be defined"</tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TEES-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Aug 10 18:53:59 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TEES-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="TEES-module.html">Package&nbsp;TEES</a> ::
+        <a href="TEES.Utils-module.html">Package&nbsp;Utils</a> ::
+        <a href="TEES.Utils.Libraries-module.html">Package&nbsp;Libraries</a> ::
+        <a href="TEES.Utils.Libraries.PythonELM-module.html">Package&nbsp;PythonELM</a> ::
+        <a href="TEES.Utils.Libraries.PythonELM.random_layer-module.html">Module&nbsp;random_layer</a> ::
+        Class&nbsp;RandomLayer
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer-class.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class RandomLayer</h1><p class="nomargin-top"><span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+   sklearn.base.BaseEstimator --+    
+                                |    
+sklearn.base.TransformerMixin --+    
+                                |    
+                  <a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html" onclick="show_private();">BaseRandomLayer</a> --+
+                                    |
+                                   <strong class="uidshort">RandomLayer</strong>
+</pre>
+
+<hr />
+<pre class="literalblock">
+RandomLayer is a transformer that creates a feature mapping of the
+inputs that corresponds to a layer of hidden units with randomly
+generated components.
+
+The transformed values are a specified function of input activations
+that are a weighted combination of dot product (multilayer perceptron)
+and distance (rbf) activations:
+
+  input_activation = alpha * mlp_activation + (1-alpha) * rbf_activation
+
+  mlp_activation(x) = dot(x, weights) + bias
+  rbf_activation(x) = rbf_width * ||x - center||/radius
+
+  alpha and rbf_width are specified by the user
+
+  weights and biases are taken from normal distribution of
+  mean 0 and sd of 1
+
+  centers are taken uniformly from the bounding hyperrectangle
+  of the inputs, and radii are max(||x-c||)/sqrt(n_centers*2)
+
+The input activation is transformed by a transfer function that defaults
+to numpy.tanh if not specified, but can be any callable that returns an
+array of the same shape as its argument (the input activation array, of
+shape [n_samples, n_hidden]).  Functions provided are 'sine', 'tanh',
+'tribas', 'inv_tribas', 'sigmoid', 'hardlim', 'softlim', 'gaussian',
+'multiquadric', or 'inv_multiquadric'.
+
+Parameters
+----------
+`n_hidden` : int, optional (default=20)
+    Number of units to generate
+
+`alpha` : float, optional (default=0.5)
+    Mixing coefficient for distance and dot product input activations:
+    activation = alpha*mlp_activation + (1-alpha)*rbf_width*rbf_activation
+
+`rbf_width` : float, optional (default=1.0)
+    multiplier on rbf_activation
+
+`user_components`: dictionary, optional (default=None)
+    dictionary containing values for components that woud otherwise be
+    randomly generated.  Valid key/value pairs are as follows:
+       'radii'  : array-like of shape [n_hidden]
+       'centers': array-like of shape [n_hidden, n_features]
+       'biases' : array-like of shape [n_hidden]
+       'weights': array-like of shape [n_features, n_hidden]
+
+`activation_func` : {callable, string} optional (default='tanh')
+    Function used to transform input activation
+
+    It must be one of 'tanh', 'sine', 'tribas', 'inv_tribas',
+    'sigmoid', 'hardlim', 'softlim', 'gaussian', 'multiquadric',
+    'inv_multiquadric' or a callable.  If None is given, 'tanh'
+    will be used.
+
+    If a callable is given, it will be used to compute the activations.
+
+`activation_args` : dictionary, optional (default=None)
+    Supplies keyword arguments for a callable activation_func
+
+`random_state`  : int, RandomState instance or None (default=None)
+    Control the pseudo random number generator used to generate the
+    hidden unit weights at fit time.
+
+Attributes
+----------
+`input_activations_` : numpy array of shape [n_samples, n_hidden]
+    Array containing dot(x, hidden_weights) + bias for all samples
+
+`components_` : dictionary containing two keys:
+    `bias_weights_`   : numpy array of shape [n_hidden]
+    `hidden_weights_` : numpy array of shape [n_features, n_hidden]
+
+See Also
+--------
+
+</pre>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Instance Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-InstanceMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">n_hidden</span>=<span class="summary-sig-default">20</span>,
+        <span class="summary-sig-arg">alpha</span>=<span class="summary-sig-default">0.5</span>,
+        <span class="summary-sig-arg">random_state</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">activation_func</span>=<span class="summary-sig-default">'tanh'</span>,
+        <span class="summary-sig-arg">activation_args</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">user_components</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">rbf_width</span>=<span class="summary-sig-default">1.0</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer.__init__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_get_user_components"></a><span class="summary-sig-name">_get_user_components</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>)</span><br />
+      Look for given user component</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._get_user_components">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_compute_radii"></a><span class="summary-sig-name">_compute_radii</span>(<span class="summary-sig-arg">self</span>)</span><br />
+      Generate RBF radii</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._compute_radii">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_compute_centers"></a><span class="summary-sig-name">_compute_centers</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">sparse</span>,
+        <span class="summary-sig-arg">rs</span>)</span><br />
+      Generate RBF centers</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._compute_centers">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_compute_biases"></a><span class="summary-sig-name">_compute_biases</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">rs</span>)</span><br />
+      Generate MLP biases</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._compute_biases">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_compute_weights"></a><span class="summary-sig-name">_compute_weights</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">rs</span>)</span><br />
+      Generate MLP weights</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._compute_weights">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer-class.html#_generate_components" class="summary-sig-name" onclick="show_private();">_generate_components</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">X</span>)</span><br />
+      Generate components of hidden layer given X</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._generate_components">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer-class.html#_compute_input_activations" class="summary-sig-name" onclick="show_private();">_compute_input_activations</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">X</span>)</span><br />
+      Compute input activations given X</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._compute_input_activations">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html" onclick="show_private();">BaseRandomLayer</a></code></b>:
+      <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#fit">fit</a></code>,
+      <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#transform">transform</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html" onclick="show_private();">BaseRandomLayer</a></code></b> (private):
+      <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#_compute_hidden_activations" onclick="show_private();">_compute_hidden_activations</a></code>
+      </p></div>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS METHODS ==================== -->
+<a name="section-ClassMethods"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Methods</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassMethods"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html" onclick="show_private();">BaseRandomLayer</a></code></b>:
+      <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#activation_func_names">activation_func_names</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_tribas"></a><span class="summary-name">_tribas</span> = <code title="lambda x: np.clip(1.0-np.fabs(x), 0.0, 1.0)">lambda x: np.clip(1.0-np.fabs(x), 0.0, 1.0)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_inv_tribas"></a><span class="summary-name">_inv_tribas</span> = <code title="lambda x: np.clip(np.fabs(x), 0.0, 1.0)">lambda x: np.clip(np.fabs(x), 0.0, 1.0)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_sigmoid"></a><span class="summary-name">_sigmoid</span> = <code title="lambda x: 1.0/(1.0+ np.exp(-x))">lambda x: 1.0/(1.0+ np.exp(-x))</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_hardlim"></a><span class="summary-name">_hardlim</span> = <code title="lambda x: np.array(x &gt; 0.0, dtype= float)">lambda x: np.array(x &gt; 0.0, dtype= float)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_softlim"></a><span class="summary-name">_softlim</span> = <code title="lambda x: np.clip(x, 0.0, 1.0)">lambda x: np.clip(x, 0.0, 1.0)</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_gaussian"></a><span class="summary-name">_gaussian</span> = <code title="lambda x: np.exp(-pow(x, 2.0))">lambda x: np.exp(-pow(x, 2.0))</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_multiquadric"></a><span class="summary-name">_multiquadric</span> = <code title="lambda x: np.sqrt(1.0+ pow(x, 2.0))">lambda x: np.sqrt(1.0+ pow(x, 2.0))</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_inv_multiquadric"></a><span class="summary-name">_inv_multiquadric</span> = <code title="lambda x: 1.0/(np.sqrt(1.0+ pow(x, 2.0)))">lambda x: 1.0/(np.sqrt(1.0+ pow(x, 2.0)))</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer-class.html#_internal_activation_funcs" class="summary-name" onclick="show_private();">_internal_activation_funcs</a> = <code title="{'sine': np.sin, 'tanh': np.tanh, 'tribas': _tribas, 'inv_tribas': _in\
+v_tribas, 'sigmoid': _sigmoid, 'softlim': _softlim, 'hardlim': _hardli\
+m, 'gaussian': _gaussian, 'multiquadric': _multiquadric, 'inv_multiqua\
+dric': _inv_multiquadric,}">{'sine': np.sin, 'tanh': np.tanh,<code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html" onclick="show_private();">BaseRandomLayer</a></code></b>:
+      <code><a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#__metaclass__">__metaclass__</a></code>
+      </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== METHOD DETAILS ==================== -->
+<a name="section-MethodDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Method Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-MethodDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="__init__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">n_hidden</span>=<span class="sig-default">20</span>,
+        <span class="sig-arg">alpha</span>=<span class="sig-default">0.5</span>,
+        <span class="sig-arg">random_state</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">activation_func</span>=<span class="sig-default">'tanh'</span>,
+        <span class="sig-arg">activation_args</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">user_components</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">rbf_width</span>=<span class="sig-default">1.0</span>)</span>
+    <br /><em class="fname">(Constructor)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer.__init__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#__init__">BaseRandomLayer.__init__</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_generate_components"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_generate_components</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">X</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._generate_components">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Generate components of hidden layer given X</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#_generate_components" onclick="show_private();">BaseRandomLayer._generate_components</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="_compute_input_activations"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_compute_input_activations</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">X</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="TEES.Utils.Libraries.PythonELM.random_layer-pysrc.html#RandomLayer._compute_input_activations">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Compute input activations given X</p>
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#_compute_input_activations" onclick="show_private();">BaseRandomLayer._compute_input_activations</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== CLASS VARIABLE DETAILS ==================== -->
+<a name="section-ClassVariableDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variable Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariableDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_internal_activation_funcs"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_internal_activation_funcs</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+{'sine': np.sin, 'tanh': np.tanh, 'tribas': _tribas, 'inv_tribas': _in<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+v_tribas, 'sigmoid': _sigmoid, 'softlim': _softlim, 'hardlim': _hardli<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+m, 'gaussian': _gaussian, 'multiquadric': _multiquadric, 'inv_multiqua<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+dric': _inv_multiquadric,}
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TEES-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Aug 10 18:53:55 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

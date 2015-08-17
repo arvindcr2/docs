@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>TEES.Detectors.UnmergingDetector</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TEES-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="TEES-module.html">Package&nbsp;TEES</a> ::
+        <a href="TEES.Detectors-module.html">Package&nbsp;Detectors</a> ::
+        Module&nbsp;UnmergingDetector
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="TEES.Detectors.UnmergingDetector-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="TEES.Detectors.UnmergingDetector-module.html">Module TEES.Detectors.UnmergingDetector</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module TEES.Detectors.SingleStageDetector=TEES.Detectors.SingleStageDetector-module.html,Class TEES.Detectors.SingleStageDetector.SingleStageDetector=TEES.Detectors.SingleStageDetector.SingleStageDetector-class.html"><a title="TEES.Detectors.SingleStageDetector
+TEES.Detectors.SingleStageDetector.SingleStageDetector" class="py-name" href="#" onclick="return doclink('link-0', 'SingleStageDetector', 'link-0');">SingleStageDetector</a></tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="TEES.Detectors.SingleStageDetector
+TEES.Detectors.SingleStageDetector.SingleStageDetector" class="py-name" href="#" onclick="return doclink('link-1', 'SingleStageDetector', 'link-0');">SingleStageDetector</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Package TEES.ExampleBuilders=TEES.ExampleBuilders-module.html"><a title="TEES.ExampleBuilders" class="py-name" href="#" onclick="return doclink('link-2', 'ExampleBuilders', 'link-2');">ExampleBuilders</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module TEES.ExampleBuilders.UnmergingExampleBuilder=TEES.ExampleBuilders.UnmergingExampleBuilder-module.html,Class TEES.ExampleBuilders.UnmergingExampleBuilder.UnmergingExampleBuilder=TEES.ExampleBuilders.UnmergingExampleBuilder.UnmergingExampleBuilder-class.html"><a title="TEES.ExampleBuilders.UnmergingExampleBuilder
+TEES.ExampleBuilders.UnmergingExampleBuilder.UnmergingExampleBuilder" class="py-name" href="#" onclick="return doclink('link-3', 'UnmergingExampleBuilder', 'link-3');">UnmergingExampleBuilder</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name"><a title="TEES.ExampleBuilders.UnmergingExampleBuilder
+TEES.ExampleBuilders.UnmergingExampleBuilder.UnmergingExampleBuilder" class="py-name" href="#" onclick="return doclink('link-4', 'UnmergingExampleBuilder', 'link-3');">UnmergingExampleBuilder</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name" targets="Package TEES.ExampleWriters=TEES.ExampleWriters-module.html"><a title="TEES.ExampleWriters" class="py-name" href="#" onclick="return doclink('link-5', 'ExampleWriters', 'link-5');">ExampleWriters</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module TEES.ExampleWriters.UnmergingExampleWriter=TEES.ExampleWriters.UnmergingExampleWriter-module.html,Class TEES.ExampleWriters.UnmergingExampleWriter.UnmergingExampleWriter=TEES.ExampleWriters.UnmergingExampleWriter.UnmergingExampleWriter-class.html"><a title="TEES.ExampleWriters.UnmergingExampleWriter
+TEES.ExampleWriters.UnmergingExampleWriter.UnmergingExampleWriter" class="py-name" href="#" onclick="return doclink('link-6', 'UnmergingExampleWriter', 'link-6');">UnmergingExampleWriter</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name"><a title="TEES.ExampleWriters.UnmergingExampleWriter
+TEES.ExampleWriters.UnmergingExampleWriter.UnmergingExampleWriter" class="py-name" href="#" onclick="return doclink('link-7', 'UnmergingExampleWriter', 'link-6');">UnmergingExampleWriter</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name" targets="Package TEES.Classifiers=TEES.Classifiers-module.html"><a title="TEES.Classifiers" class="py-name" href="#" onclick="return doclink('link-8', 'Classifiers', 'link-8');">Classifiers</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Module TEES.Classifiers.SVMMultiClassClassifier=TEES.Classifiers.SVMMultiClassClassifier-module.html,Class TEES.Classifiers.SVMMultiClassClassifier.SVMMultiClassClassifier=TEES.Classifiers.SVMMultiClassClassifier.SVMMultiClassClassifier-class.html"><a title="TEES.Classifiers.SVMMultiClassClassifier
+TEES.Classifiers.SVMMultiClassClassifier.SVMMultiClassClassifier" class="py-name" href="#" onclick="return doclink('link-9', 'SVMMultiClassClassifier', 'link-9');">SVMMultiClassClassifier</a></tt> <tt class="py-keyword">import</tt> <tt id="link-10" class="py-name"><a title="TEES.Classifiers.SVMMultiClassClassifier
+TEES.Classifiers.SVMMultiClassClassifier.SVMMultiClassClassifier" class="py-name" href="#" onclick="return doclink('link-10', 'SVMMultiClassClassifier', 'link-9');">SVMMultiClassClassifier</a></tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-11" class="py-name" targets="Package TEES.Evaluators=TEES.Evaluators-module.html"><a title="TEES.Evaluators" class="py-name" href="#" onclick="return doclink('link-11', 'Evaluators', 'link-11');">Evaluators</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Module TEES.Evaluators.AveragingMultiClassEvaluator=TEES.Evaluators.AveragingMultiClassEvaluator-module.html,Class TEES.Evaluators.AveragingMultiClassEvaluator.AveragingMultiClassEvaluator=TEES.Evaluators.AveragingMultiClassEvaluator.AveragingMultiClassEvaluator-class.html"><a title="TEES.Evaluators.AveragingMultiClassEvaluator
+TEES.Evaluators.AveragingMultiClassEvaluator.AveragingMultiClassEvaluator" class="py-name" href="#" onclick="return doclink('link-12', 'AveragingMultiClassEvaluator', 'link-12');">AveragingMultiClassEvaluator</a></tt> <tt class="py-keyword">import</tt> <tt id="link-13" class="py-name"><a title="TEES.Evaluators.AveragingMultiClassEvaluator
+TEES.Evaluators.AveragingMultiClassEvaluator.AveragingMultiClassEvaluator" class="py-name" href="#" onclick="return doclink('link-13', 'AveragingMultiClassEvaluator', 'link-12');">AveragingMultiClassEvaluator</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">itertools</tt><tt class="py-op">,</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt> <tt class="py-name">os</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="UnmergingDetector"></a><div id="UnmergingDetector-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="UnmergingDetector-toggle" onclick="return toggle('UnmergingDetector');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="TEES.Detectors.UnmergingDetector.UnmergingDetector-class.html">UnmergingDetector</a><tt class="py-op">(</tt><tt class="py-base-class">SingleStageDetector</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UnmergingDetector-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="UnmergingDetector-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">    Makes valid argument combinations for BioNLP type events.</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="UnmergingDetector.__init__"></a><div id="UnmergingDetector.__init__-def"><a name="L12"></a><tt class="py-lineno">12</tt> <a class="py-toggle" href="#" id="UnmergingDetector.__init__-toggle" onclick="return toggle('UnmergingDetector.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Detectors.UnmergingDetector.UnmergingDetector-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UnmergingDetector.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="UnmergingDetector.__init__-expanded"><a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">        <tt id="link-14" class="py-name"><a title="TEES.Detectors.SingleStageDetector
+TEES.Detectors.SingleStageDetector.SingleStageDetector" class="py-name" href="#" onclick="return doclink('link-14', 'SingleStageDetector', 'link-0');">SingleStageDetector</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Method TEES.Classifiers.AllTrueClassifier.AllTrueClassifier.__init__()=TEES.Classifiers.AllTrueClassifier.AllTrueClassifier-class.html#__init__,Method TEES.Classifiers.Classifier.Classifier.__init__()=TEES.Classifiers.Classifier.Classifier-class.html#__init__,Method TEES.Classifiers.ExternalClassifier.ExternalClassifier.__init__()=TEES.Classifiers.ExternalClassifier.ExternalClassifier-class.html#__init__,Method TEES.Classifiers.SKLearnSVM.SKLearnSVM.__init__()=TEES.Classifiers.SKLearnSVM.SKLearnSVM-class.html#__init__,Method TEES.Classifiers.SVMMultiClassClassifier.SVMMultiClassClassifier.__init__()=TEES.Classifiers.SVMMultiClassClassifier.SVMMultiClassClassifier-class.html#__init__,Method TEES.Core.IdSet.IdSet.__init__()=TEES.Core.IdSet.IdSet-class.html#__init__,Method TEES.Core.Model.Model.__init__()=TEES.Core.Model.Model-class.html#__init__,Method TEES.Core.SentenceGraph.SentenceGraph.__init__()=TEES.Core.SentenceGraph.SentenceGraph-class.html#__init__,Method TEES.Core.SimpleGraph.Graph.__init__()=TEES.Core.SimpleGraph.Graph-class.html#__init__,Method TEES.Detectors.CODetector.CODetector.__init__()=TEES.Detectors.CODetector.CODetector-class.html#__init__,Method TEES.Detectors.Detector.Detector.__init__()=TEES.Detectors.Detector.Detector-class.html#__init__,Method TEES.Detectors.EdgeDetector.EdgeDetector.__init__()=TEES.Detectors.EdgeDetector.EdgeDetector-class.html#__init__,Method TEES.Detectors.EntityDetector.EntityDetector.__init__()=TEES.Detectors.EntityDetector.EntityDetector-class.html#__init__,Method TEES.Detectors.EventDetector.EventDetector.__init__()=TEES.Detectors.EventDetector.EventDetector-class.html#__init__,Method TEES.Detectors.ModifierDetector.ModifierDetector.__init__()=TEES.Detectors.ModifierDetector.ModifierDetector-class.html#__init__,Method TEES.Detectors.Preprocessor.Preprocessor.__init__()=TEES.Detectors.Preprocessor.Preprocessor-class.html#__init__,Method TEES.Detectors.SingleStageDetector.SingleStageDetector.__init__()=TEES.Detectors.SingleStageDetector.SingleStageDetector-class.html#__init__,Method TEES.Detectors.StepSelector.StepSelector.__init__()=TEES.Detectors.StepSelector.StepSelector-class.html#__init__,Method TEES.Detectors.StructureAnalyzer.Argument.__init__()=TEES.Detectors.StructureAnalyzer.Argument-class.html#__init__,Method TEES.Detectors.StructureAnalyzer.Entity.__init__()=TEES.Detectors.StructureAnalyzer.Entity-class.html#__init__,Method TEES.Detectors.StructureAnalyzer.Event.__init__()=TEES.Detectors.StructureAnalyzer.Event-class.html#__init__,Method TEES.Detectors.StructureAnalyzer.Group.__init__()=TEES.Detectors.StructureAnalyzer.Group-class.html#__init__,Method TEES.Detectors.StructureAnalyzer.Modifier.__init__()=TEES.Detectors.StructureAnalyzer.Modifier-class.html#__init__,Method TEES.Detectors.StructureAnalyzer.Relation.__init__()=TEES.Detectors.StructureAnalyzer.Relation-class.html#__init__,Method TEES.Detectors.StructureAnalyzer.StructureAnalyzer.__init__()=TEES.Detectors.StructureAnalyzer.StructureAnalyzer-class.html#__init__,Method TEES.Detectors.ToolChain.ToolChain.__init__()=TEES.Detectors.ToolChain.ToolChain-class.html#__init__,Method TEES.Detectors.UnmergingDetector.UnmergingDetector.__init__()=TEES.Detectors.UnmergingDetector.UnmergingDetector-class.html#__init__,Method TEES.Evaluators.AveragingMultiClassEvaluator.AveragingMultiClassEvaluator.__init__()=TEES.Evaluators.AveragingMultiClassEvaluator.AveragingMultiClassEvaluator-class.html#__init__,Method TEES.Evaluators.BinaryEvaluator.BinaryEvaluator.__init__()=TEES.Evaluators.BinaryEvaluator.BinaryEvaluator-class.html#__init__,Method TEES.Evaluators.Evaluator.EvaluationData.__init__()=TEES.Evaluators.Evaluator.EvaluationData-class.html#__init__,Method TEES.ExampleBuilders.EdgeExampleBuilder.EdgeExampleBuilder.__init__()=TEES.ExampleBuilders.EdgeExampleBuilder.EdgeExampleBuilder-class.html#__init__,Method TEES.ExampleBuilders.EntityExampleBuilder.EntityExampleBuilder.__init__()=TEES.ExampleBuilders.EntityExampleBuilder.EntityExampleBuilder-class.html#__init__,Method TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.__init__()=TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder-class.html#__init__,Method TEES.ExampleBuilders.ExampleStats.ExampleStats.__init__()=TEES.ExampleBuilders.ExampleStats.ExampleStats-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.BacteriaRenamingFeatureBuilder.BacteriaRenamingFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.BacteriaRenamingFeatureBuilder.BacteriaRenamingFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.BioInferOntologyFeatureBuilder.BioInferOntologyFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.BioInferOntologyFeatureBuilder.BioInferOntologyFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.EVEXFeatureBuilder.EVEXFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.EVEXFeatureBuilder.EVEXFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.EdgeFeatureBuilder.EdgeFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.EdgeFeatureBuilder.EdgeFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.FeatureBuilder.FeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.FeatureBuilder.FeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.GiulianoFeatureBuilder.GiulianoFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.GiulianoFeatureBuilder.GiulianoFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.GraphKernelFeatureBuilder.GraphKernelFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.GraphKernelFeatureBuilder.GraphKernelFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.MultiEdgeFeatureBuilder.MultiEdgeFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.MultiEdgeFeatureBuilder.MultiEdgeFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.NameGazetteer.NameGazetteer.__init__()=TEES.ExampleBuilders.FeatureBuilders.NameGazetteer.NameGazetteer-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.NodalidaFeatureBuilder.NodalidaFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.NodalidaFeatureBuilder.NodalidaFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.RELFeatureBuilder.RELFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.RELFeatureBuilder.RELFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.RandomFeatureBuilder.RandomFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.RandomFeatureBuilder.RandomFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.TokenFeatureBuilder.TokenFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.TokenFeatureBuilder.TokenFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.TriggerFeatureBuilder.TriggerFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.TriggerFeatureBuilder.TriggerFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.FeatureBuilders.WordNetFeatureBuilder.WordNetFeatureBuilder.__init__()=TEES.ExampleBuilders.FeatureBuilders.WordNetFeatureBuilder.WordNetFeatureBuilder-class.html#__init__,Method TEES.ExampleBuilders.ModifierExampleBuilder.ModifierExampleBuilder.__init__()=TEES.ExampleBuilders.ModifierExampleBuilder.ModifierExampleBuilder-class.html#__init__,Method TEES.ExampleBuilders.PhraseTriggerExampleBuilder.PhraseTriggerExampleBuilder.__init__()=TEES.ExampleBuilders.PhraseTriggerExampleBuilder.PhraseTriggerExampleBuilder-class.html#__init__,Method TEES.ExampleBuilders.UnmergingExampleBuilder.UnmergingExampleBuilder.__init__()=TEES.ExampleBuilders.UnmergingExampleBuilder.UnmergingExampleBuilder-class.html#__init__,Method TEES.ExampleWriters.EdgeExampleWriter.EdgeExampleWriter.__init__()=TEES.ExampleWriters.EdgeExampleWriter.EdgeExampleWriter-class.html#__init__,Method TEES.ExampleWriters.EntityExampleWriter.EntityExampleWriter.__init__()=TEES.ExampleWriters.EntityExampleWriter.EntityExampleWriter-class.html#__init__,Method TEES.ExampleWriters.ModifierExampleWriter.ModifierExampleWriter.__init__()=TEES.ExampleWriters.ModifierExampleWriter.ModifierExampleWriter-class.html#__init__,Method TEES.ExampleWriters.PhraseTriggerExampleWriter.PhraseTriggerExampleWriter.__init__()=TEES.ExampleWriters.PhraseTriggerExampleWriter.PhraseTriggerExampleWriter-class.html#__init__,Method TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter.__init__()=TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter-class.html#__init__,Method TEES.ExampleWriters.UnmergingExampleWriter.UnmergingExampleWriter.__init__()=TEES.ExampleWriters.UnmergingExampleWriter.UnmergingExampleWriter-class.html#__init__,Method TEES.Tools.ProcessUtils.ProcessWrapper.__init__()=TEES.Tools.ProcessUtils.ProcessWrapper-class.html#__init__,Method TEES.Utils.Connection.ClusterConnection.ClusterConnection.__init__()=TEES.Utils.Connection.ClusterConnection.ClusterConnection-class.html#__init__,Method TEES.Utils.Connection.LSFConnection.LSFConnection.__init__()=TEES.Utils.Connection.LSFConnection.LSFConnection-class.html#__init__,Method TEES.Utils.Connection.PBSConnection.PBSConnection.__init__()=TEES.Utils.Connection.PBSConnection.PBSConnection-class.html#__init__,Method TEES.Utils.Connection.SLURMConnection.SLURMConnection.__init__()=TEES.Utils.Connection.SLURMConnection.SLURMConnection-class.html#__init__,Method TEES.Utils.Connection.UnixConnection.UnixConnection.__init__()=TEES.Utils.Connection.UnixConnection.UnixConnection-class.html#__init__,Method TEES.Utils.Download.SizeReportingFile.__init__()=TEES.Utils.Download.SizeReportingFile-class.html#__init__,Method TEES.Utils.ElementTreeUtils.ETWriter.__init__()=TEES.Utils.ElementTreeUtils.ETWriter-class.html#__init__,Method TEES.Utils.InteractionXML.CorpusElements.CorpusElements.__init__()=TEES.Utils.InteractionXML.CorpusElements.CorpusElements-class.html#__init__,Method TEES.Utils.InteractionXML.ParseGraph.ParseGraph.__init__()=TEES.Utils.InteractionXML.ParseGraph.ParseGraph-class.html#__init__,Method TEES.Utils.InteractionXML.ParseGraph.ParseGraphNode.__init__()=TEES.Utils.InteractionXML.ParseGraph.ParseGraphNode-class.html#__init__,Method TEES.Utils.InteractionXML.SentenceElements.SentenceElements.__init__()=TEES.Utils.InteractionXML.SentenceElements.SentenceElements-class.html#__init__,Method TEES.Utils.Libraries.PorterStemmer.PorterStemmer.__init__()=TEES.Utils.Libraries.PorterStemmer.PorterStemmer-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.elm.BaseELM.__init__()=TEES.Utils.Libraries.PythonELM.elm.BaseELM-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.elm.ELMClassifier.__init__()=TEES.Utils.Libraries.PythonELM.elm.ELMClassifier-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.elm.ELMRegressor.__init__()=TEES.Utils.Libraries.PythonELM.elm.ELMRegressor-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier.__init__()=TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor.__init__()=TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer.__init__()=TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.random_layer.GRBFRandomLayer.__init__()=TEES.Utils.Libraries.PythonELM.random_layer.GRBFRandomLayer-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.random_layer.MLPRandomLayer.__init__()=TEES.Utils.Libraries.PythonELM.random_layer.MLPRandomLayer-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.random_layer.RBFRandomLayer.__init__()=TEES.Utils.Libraries.PythonELM.random_layer.RBFRandomLayer-class.html#__init__,Method TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer.__init__()=TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer-class.html#__init__,Method TEES.Utils.Libraries.progressbar.Bar.__init__()=TEES.Utils.Libraries.progressbar.Bar-class.html#__init__,Method TEES.Utils.Libraries.progressbar.FileTransferSpeed.__init__()=TEES.Utils.Libraries.progressbar.FileTransferSpeed-class.html#__init__,Method TEES.Utils.Libraries.progressbar.ProgressBar.__init__()=TEES.Utils.Libraries.progressbar.ProgressBar-class.html#__init__,Method TEES.Utils.Libraries.progressbar.RotatingMarker.__init__()=TEES.Utils.Libraries.progressbar.RotatingMarker-class.html#__init__,Method TEES.Utils.Libraries.stats.Dispatch.__init__()=TEES.Utils.Libraries.stats.Dispatch-class.html#__init__,Method TEES.Utils.Menu.Menu.__init__()=TEES.Utils.Menu.Menu-class.html#__init__,Method TEES.Utils.Menu.MenuSystem.__init__()=TEES.Utils.Menu.MenuSystem-class.html#__init__,Method TEES.Utils.Menu.Option.__init__()=TEES.Utils.Menu.Option-class.html#__init__,Method TEES.Utils.ProgressCounter.ProgressCounter.__init__()=TEES.Utils.ProgressCounter.ProgressCounter-class.html#__init__,Method TEES.Utils.ProteinNameSplitter.Token.__init__()=TEES.Utils.ProteinNameSplitter.Token-class.html#__init__,Method TEES.Utils.STFormat.STTools.Annotation.__init__()=TEES.Utils.STFormat.STTools.Annotation-class.html#__init__,Method TEES.Utils.STFormat.STTools.Argument.__init__()=TEES.Utils.STFormat.STTools.Argument-class.html#__init__,Method TEES.Utils.STFormat.STTools.Document.__init__()=TEES.Utils.STFormat.STTools.Document-class.html#__init__,Method TEES.Utils.Stream.StreamModifier.__init__()=TEES.Utils.Stream.StreamModifier-class.html#__init__,Method TEES.Utils.Timer.Timer.__init__()=TEES.Utils.Timer.Timer-class.html#__init__"><a title="TEES.Classifiers.AllTrueClassifier.AllTrueClassifier.__init__
+TEES.Classifiers.Classifier.Classifier.__init__
+TEES.Classifiers.ExternalClassifier.ExternalClassifier.__init__
+TEES.Classifiers.SKLearnSVM.SKLearnSVM.__init__
+TEES.Classifiers.SVMMultiClassClassifier.SVMMultiClassClassifier.__init__
+TEES.Core.IdSet.IdSet.__init__
+TEES.Core.Model.Model.__init__
+TEES.Core.SentenceGraph.SentenceGraph.__init__
+TEES.Core.SimpleGraph.Graph.__init__
+TEES.Detectors.CODetector.CODetector.__init__
+TEES.Detectors.Detector.Detector.__init__
+TEES.Detectors.EdgeDetector.EdgeDetector.__init__
+TEES.Detectors.EntityDetector.EntityDetector.__init__
+TEES.Detectors.EventDetector.EventDetector.__init__
+TEES.Detectors.ModifierDetector.ModifierDetector.__init__
+TEES.Detectors.Preprocessor.Preprocessor.__init__
+TEES.Detectors.SingleStageDetector.SingleStageDetector.__init__
+TEES.Detectors.StepSelector.StepSelector.__init__
+TEES.Detectors.StructureAnalyzer.Argument.__init__
+TEES.Detectors.StructureAnalyzer.Entity.__init__
+TEES.Detectors.StructureAnalyzer.Event.__init__
+TEES.Detectors.StructureAnalyzer.Group.__init__
+TEES.Detectors.StructureAnalyzer.Modifier.__init__
+TEES.Detectors.StructureAnalyzer.Relation.__init__
+TEES.Detectors.StructureAnalyzer.StructureAnalyzer.__init__
+TEES.Detectors.ToolChain.ToolChain.__init__
+TEES.Detectors.UnmergingDetector.UnmergingDetector.__init__
+TEES.Evaluators.AveragingMultiClassEvaluator.AveragingMultiClassEvaluator.__init__
+TEES.Evaluators.BinaryEvaluator.BinaryEvaluator.__init__
+TEES.Evaluators.Evaluator.EvaluationData.__init__
+TEES.ExampleBuilders.EdgeExampleBuilder.EdgeExampleBuilder.__init__
+TEES.ExampleBuilders.EntityExampleBuilder.EntityExampleBuilder.__init__
+TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.__init__
+TEES.ExampleBuilders.ExampleStats.ExampleStats.__init__
+TEES.ExampleBuilders.FeatureBuilders.BacteriaRenamingFeatureBuilder.BacteriaRenamingFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.BioInferOntologyFeatureBuilder.BioInferOntologyFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.EVEXFeatureBuilder.EVEXFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.EdgeFeatureBuilder.EdgeFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.FeatureBuilder.FeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.GiulianoFeatureBuilder.GiulianoFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.GraphKernelFeatureBuilder.GraphKernelFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.MultiEdgeFeatureBuilder.MultiEdgeFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.NameGazetteer.NameGazetteer.__init__
+TEES.ExampleBuilders.FeatureBuilders.NodalidaFeatureBuilder.NodalidaFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.RELFeatureBuilder.RELFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.RandomFeatureBuilder.RandomFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.TokenFeatureBuilder.TokenFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.TriggerFeatureBuilder.TriggerFeatureBuilder.__init__
+TEES.ExampleBuilders.FeatureBuilders.WordNetFeatureBuilder.WordNetFeatureBuilder.__init__
+TEES.ExampleBuilders.ModifierExampleBuilder.ModifierExampleBuilder.__init__
+TEES.ExampleBuilders.PhraseTriggerExampleBuilder.PhraseTriggerExampleBuilder.__init__
+TEES.ExampleBuilders.UnmergingExampleBuilder.UnmergingExampleBuilder.__init__
+TEES.ExampleWriters.EdgeExampleWriter.EdgeExampleWriter.__init__
+TEES.ExampleWriters.EntityExampleWriter.EntityExampleWriter.__init__
+TEES.ExampleWriters.ModifierExampleWriter.ModifierExampleWriter.__init__
+TEES.ExampleWriters.PhraseTriggerExampleWriter.PhraseTriggerExampleWriter.__init__
+TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter.__init__
+TEES.ExampleWriters.UnmergingExampleWriter.UnmergingExampleWriter.__init__
+TEES.Tools.ProcessUtils.ProcessWrapper.__init__
+TEES.Utils.Connection.ClusterConnection.ClusterConnection.__init__
+TEES.Utils.Connection.LSFConnection.LSFConnection.__init__
+TEES.Utils.Connection.PBSConnection.PBSConnection.__init__
+TEES.Utils.Connection.SLURMConnection.SLURMConnection.__init__
+TEES.Utils.Connection.UnixConnection.UnixConnection.__init__
+TEES.Utils.Download.SizeReportingFile.__init__
+TEES.Utils.ElementTreeUtils.ETWriter.__init__
+TEES.Utils.InteractionXML.CorpusElements.CorpusElements.__init__
+TEES.Utils.InteractionXML.ParseGraph.ParseGraph.__init__
+TEES.Utils.InteractionXML.ParseGraph.ParseGraphNode.__init__
+TEES.Utils.InteractionXML.SentenceElements.SentenceElements.__init__
+TEES.Utils.Libraries.PorterStemmer.PorterStemmer.__init__
+TEES.Utils.Libraries.PythonELM.elm.BaseELM.__init__
+TEES.Utils.Libraries.PythonELM.elm.ELMClassifier.__init__
+TEES.Utils.Libraries.PythonELM.elm.ELMRegressor.__init__
+TEES.Utils.Libraries.PythonELM.elm.GenELMClassifier.__init__
+TEES.Utils.Libraries.PythonELM.elm.GenELMRegressor.__init__
+TEES.Utils.Libraries.PythonELM.random_layer.BaseRandomLayer.__init__
+TEES.Utils.Libraries.PythonELM.random_layer.GRBFRandomLayer.__init__
+TEES.Utils.Libraries.PythonELM.random_layer.MLPRandomLayer.__init__
+TEES.Utils.Libraries.PythonELM.random_layer.RBFRandomLayer.__init__
+TEES.Utils.Libraries.PythonELM.random_layer.RandomLayer.__init__
+TEES.Utils.Libraries.progressbar.Bar.__init__
+TEES.Utils.Libraries.progressbar.FileTransferSpeed.__init__
+TEES.Utils.Libraries.progressbar.ProgressBar.__init__
+TEES.Utils.Libraries.progressbar.RotatingMarker.__init__
+TEES.Utils.Libraries.stats.Dispatch.__init__
+TEES.Utils.Menu.Menu.__init__
+TEES.Utils.Menu.MenuSystem.__init__
+TEES.Utils.Menu.Option.__init__
+TEES.Utils.ProgressCounter.ProgressCounter.__init__
+TEES.Utils.ProteinNameSplitter.Token.__init__
+TEES.Utils.STFormat.STTools.Annotation.__init__
+TEES.Utils.STFormat.STTools.Argument.__init__
+TEES.Utils.STFormat.STTools.Document.__init__
+TEES.Utils.Stream.StreamModifier.__init__
+TEES.Utils.Timer.Timer.__init__" class="py-name" href="#" onclick="return doclink('link-15', '__init__', 'link-15');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">exampleBuilder</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="TEES.ExampleBuilders.UnmergingExampleBuilder
+TEES.ExampleBuilders.UnmergingExampleBuilder.UnmergingExampleBuilder" class="py-name" href="#" onclick="return doclink('link-16', 'UnmergingExampleBuilder', 'link-3');">UnmergingExampleBuilder</a></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">exampleWriter</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="TEES.ExampleWriters.UnmergingExampleWriter
+TEES.ExampleWriters.UnmergingExampleWriter.UnmergingExampleWriter" class="py-name" href="#" onclick="return doclink('link-17', 'UnmergingExampleWriter', 'link-6');">UnmergingExampleWriter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Module TEES.Classifiers.Classifier=TEES.Classifiers.Classifier-module.html,Class TEES.Classifiers.Classifier.Classifier=TEES.Classifiers.Classifier.Classifier-class.html"><a title="TEES.Classifiers.Classifier
+TEES.Classifiers.Classifier.Classifier" class="py-name" href="#" onclick="return doclink('link-18', 'Classifier', 'link-18');">Classifier</a></tt> <tt class="py-op">=</tt> <tt id="link-19" class="py-name"><a title="TEES.Classifiers.SVMMultiClassClassifier
+TEES.Classifiers.SVMMultiClassClassifier.SVMMultiClassClassifier" class="py-name" href="#" onclick="return doclink('link-19', 'SVMMultiClassClassifier', 'link-9');">SVMMultiClassClassifier</a></tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">evaluator</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="TEES.Evaluators.AveragingMultiClassEvaluator
+TEES.Evaluators.AveragingMultiClassEvaluator.AveragingMultiClassEvaluator" class="py-name" href="#" onclick="return doclink('link-20', 'AveragingMultiClassEvaluator', 'link-12');">AveragingMultiClassEvaluator</a></tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt> <tt class="py-op">=</tt> <tt class="py-string">"unmerging-"</tt> </tt>
+</div><a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">     </tt>
+<a name="UnmergingDetector.buildExamples"></a><div id="UnmergingDetector.buildExamples-def"><a name="L20"></a><tt class="py-lineno">20</tt> <a class="py-toggle" href="#" id="UnmergingDetector.buildExamples-toggle" onclick="return toggle('UnmergingDetector.buildExamples');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Detectors.UnmergingDetector.UnmergingDetector-class.html#buildExamples">buildExamples</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">model</tt><tt class="py-op">,</tt> <tt class="py-param">datas</tt><tt class="py-op">,</tt> <tt class="py-param">outputs</tt><tt class="py-op">,</tt> <tt class="py-param">golds</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-param">exampleStyle</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">saveIdsToModel</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-param">parse</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UnmergingDetector.buildExamples-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="UnmergingDetector.buildExamples-expanded"><a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">exampleStyle</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">            <tt class="py-name">exampleStyle</tt> <tt class="py-op">=</tt> <tt class="py-name">model</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method TEES.Core.Model.Model.getStr()=TEES.Core.Model.Model-class.html#getStr,Method TEES.Detectors.Detector.Detector.getStr()=TEES.Detectors.Detector.Detector-class.html#getStr"><a title="TEES.Core.Model.Model.getStr
+TEES.Detectors.Detector.Detector.getStr" class="py-name" href="#" onclick="return doclink('link-21', 'getStr', 'link-21');">getStr</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt><tt class="py-op">+</tt><tt class="py-string">"example-style"</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-22" class="py-name" targets="Function TEES.Tools.BLLIPParser.parse()=TEES.Tools.BLLIPParser-module.html#parse"><a title="TEES.Tools.BLLIPParser.parse" class="py-name" href="#" onclick="return doclink('link-22', 'parse', 'link-22');">parse</a></tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">            <tt id="link-23" class="py-name"><a title="TEES.Tools.BLLIPParser.parse" class="py-name" href="#" onclick="return doclink('link-23', 'parse', 'link-22');">parse</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="TEES.Core.Model.Model.getStr
+TEES.Detectors.Detector.Detector.getStr" class="py-name" href="#" onclick="return doclink('link-24', 'getStr', 'link-21');">getStr</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt><tt class="py-op">+</tt><tt class="py-string">"parse"</tt><tt class="py-op">,</tt> <tt class="py-name">model</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Variable TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.structureAnalyzer=TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder-class.html#structureAnalyzer"><a title="TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.structureAnalyzer" class="py-name" href="#" onclick="return doclink('link-25', 'structureAnalyzer', 'link-25');">structureAnalyzer</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method TEES.Core.IdSet.IdSet.load()=TEES.Core.IdSet.IdSet-class.html#load,Method TEES.Detectors.StructureAnalyzer.Argument.load()=TEES.Detectors.StructureAnalyzer.Argument-class.html#load,Method TEES.Detectors.StructureAnalyzer.Entity.load()=TEES.Detectors.StructureAnalyzer.Entity-class.html#load,Method TEES.Detectors.StructureAnalyzer.Event.load()=TEES.Detectors.StructureAnalyzer.Event-class.html#load,Method TEES.Detectors.StructureAnalyzer.Group.load()=TEES.Detectors.StructureAnalyzer.Group-class.html#load,Method TEES.Detectors.StructureAnalyzer.Modifier.load()=TEES.Detectors.StructureAnalyzer.Modifier-class.html#load,Method TEES.Detectors.StructureAnalyzer.Relation.load()=TEES.Detectors.StructureAnalyzer.Relation-class.html#load,Method TEES.Detectors.StructureAnalyzer.StructureAnalyzer.load()=TEES.Detectors.StructureAnalyzer.StructureAnalyzer-class.html#load,Method TEES.Utils.STFormat.STTools.Document.load()=TEES.Utils.STFormat.STTools.Document-class.html#load"><a title="TEES.Core.IdSet.IdSet.load
+TEES.Detectors.StructureAnalyzer.Argument.load
+TEES.Detectors.StructureAnalyzer.Entity.load
+TEES.Detectors.StructureAnalyzer.Event.load
+TEES.Detectors.StructureAnalyzer.Group.load
+TEES.Detectors.StructureAnalyzer.Modifier.load
+TEES.Detectors.StructureAnalyzer.Relation.load
+TEES.Detectors.StructureAnalyzer.StructureAnalyzer.load
+TEES.Utils.STFormat.STTools.Document.load" class="py-name" href="#" onclick="return doclink('link-26', 'load', 'link-26');">load</a></tt><tt class="py-op">(</tt><tt class="py-name">model</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">exampleBuilder</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name"><a title="TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.structureAnalyzer" class="py-name" href="#" onclick="return doclink('link-27', 'structureAnalyzer', 'link-25');">structureAnalyzer</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.structureAnalyzer" class="py-name" href="#" onclick="return doclink('link-28', 'structureAnalyzer', 'link-25');">structureAnalyzer</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt id="link-29" class="py-name" targets="Variable TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder.data=TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder-class.html#data"><a title="TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder.data" class="py-name" href="#" onclick="return doclink('link-29', 'data', 'link-29');">data</a></tt><tt class="py-op">,</tt> <tt class="py-name">output</tt><tt class="py-op">,</tt> <tt class="py-name">gold</tt> <tt class="py-keyword">in</tt> <tt class="py-name">itertools</tt><tt class="py-op">.</tt><tt class="py-name">izip_longest</tt><tt class="py-op">(</tt><tt class="py-name">datas</tt><tt class="py-op">,</tt> <tt class="py-name">outputs</tt><tt class="py-op">,</tt> <tt class="py-name">golds</tt><tt class="py-op">,</tt> <tt class="py-name">fillvalue</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Example generation for"</tt><tt class="py-op">,</tt> <tt class="py-name">output</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt id="link-30" class="py-name"><a title="TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder.data" class="py-name" href="#" onclick="return doclink('link-30', 'data', 'link-29');">data</a></tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">,</tt> <tt class="py-name">tuple</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt id="link-31" class="py-name"><a title="TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder.data" class="py-name" href="#" onclick="return doclink('link-31', 'data', 'link-29');">data</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-32" class="py-name"><a title="TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder.data" class="py-name" href="#" onclick="return doclink('link-32', 'data', 'link-29');">data</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">isinstance</tt><tt class="py-op">(</tt><tt class="py-name">gold</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">,</tt> <tt class="py-name">tuple</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-name">gold</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">gold</tt><tt class="py-op">]</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">            <tt class="py-name">append</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">dataSet</tt><tt class="py-op">,</tt> <tt class="py-name">goldSet</tt> <tt class="py-keyword">in</tt> <tt class="py-name">itertools</tt><tt class="py-op">.</tt><tt class="py-name">izip_longest</tt><tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="TEES.ExampleBuilders.FeatureBuilders.DrugFeatureBuilder.DrugFeatureBuilder.data" class="py-name" href="#" onclick="return doclink('link-33', 'data', 'link-29');">data</a></tt><tt class="py-op">,</tt> <tt class="py-name">gold</tt><tt class="py-op">,</tt> <tt class="py-name">fillvalue</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">goldSet</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">                    <tt class="py-name">goldSet</tt> <tt class="py-op">=</tt> <tt class="py-name">dataSet</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">dataSet</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                    <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">exampleBuilder</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Class Method TEES.Core.RecallAdjust.RecallAdjust.run()=TEES.Core.RecallAdjust.RecallAdjust-class.html#run,Function TEES.Evaluators.EvaluateInteractionXML.run()=TEES.Evaluators.EvaluateInteractionXML-module.html#run,Class Method TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.run()=TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder-class.html#run,Function TEES.Tools.BANNER.run()=TEES.Tools.BANNER-module.html#run,Function TEES.Tools.GeniaEventsToSharedTask.run()=TEES.Tools.GeniaEventsToSharedTask-module.html#run,Method TEES.Utils.Connection.UnixConnection.UnixConnection.run()=TEES.Utils.Connection.UnixConnection.UnixConnection-class.html#run,Method TEES.Utils.Menu.MenuSystem.run()=TEES.Utils.Menu.MenuSystem-class.html#run"><a title="TEES.Core.RecallAdjust.RecallAdjust.run
+TEES.Evaluators.EvaluateInteractionXML.run
+TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.run
+TEES.Tools.BANNER.run
+TEES.Tools.GeniaEventsToSharedTask.run
+TEES.Utils.Connection.UnixConnection.UnixConnection.run
+TEES.Utils.Menu.MenuSystem.run" class="py-name" href="#" onclick="return doclink('link-34', 'run', 'link-34');">run</a></tt><tt class="py-op">(</tt><tt class="py-name">dataSet</tt><tt class="py-op">,</tt> <tt class="py-name">output</tt><tt class="py-op">,</tt> <tt id="link-35" class="py-name"><a title="TEES.Tools.BLLIPParser.parse" class="py-name" href="#" onclick="return doclink('link-35', 'parse', 'link-22');">parse</a></tt><tt class="py-op">,</tt> <tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">exampleStyle</tt><tt class="py-op">,</tt> <tt class="py-name">model</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Method TEES.Core.Model.Model.get()=TEES.Core.Model.Model-class.html#get,Function TEES.Utils.Parameters.get()=TEES.Utils.Parameters-module.html#get"><a title="TEES.Core.Model.Model.get
+TEES.Utils.Parameters.get" class="py-name" href="#" onclick="return doclink('link-36', 'get', 'link-36');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt><tt class="py-op">+</tt><tt class="py-string">"ids.classes"</tt><tt class="py-op">,</tt>  </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">                        <tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">model</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="TEES.Core.Model.Model.get
+TEES.Utils.Parameters.get" class="py-name" href="#" onclick="return doclink('link-37', 'get', 'link-36');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt><tt class="py-op">+</tt><tt class="py-string">"ids.features"</tt><tt class="py-op">,</tt> <tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">goldSet</tt><tt class="py-op">,</tt> <tt class="py-name">append</tt><tt class="py-op">,</tt> <tt class="py-name">saveIdsToModel</tt><tt class="py-op">,</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                        <tt id="link-38" class="py-name"><a title="TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.structureAnalyzer" class="py-name" href="#" onclick="return doclink('link-38', 'structureAnalyzer', 'link-25');">structureAnalyzer</a></tt><tt class="py-op">=</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="TEES.ExampleBuilders.ExampleBuilder.ExampleBuilder.structureAnalyzer" class="py-name" href="#" onclick="return doclink('link-39', 'structureAnalyzer', 'link-25');">structureAnalyzer</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-name">append</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">saveIdsToModel</tt><tt class="py-op">:</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">            <tt class="py-name">model</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method TEES.Core.Model.Model.save()=TEES.Core.Model.Model-class.html#save,Method TEES.Detectors.StructureAnalyzer.StructureAnalyzer.save()=TEES.Detectors.StructureAnalyzer.StructureAnalyzer-class.html#save,Method TEES.ExampleBuilders.FeatureBuilders.NameGazetteer.NameGazetteer.save()=TEES.ExampleBuilders.FeatureBuilders.NameGazetteer.NameGazetteer-class.html#save,Method TEES.Utils.STFormat.STTools.Document.save()=TEES.Utils.STFormat.STTools.Document-class.html#save"><a title="TEES.Core.Model.Model.save
+TEES.Detectors.StructureAnalyzer.StructureAnalyzer.save
+TEES.ExampleBuilders.FeatureBuilders.NameGazetteer.NameGazetteer.save
+TEES.Utils.STFormat.STTools.Document.save" class="py-name" href="#" onclick="return doclink('link-40', 'save', 'link-40');">save</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TEES-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Aug 10 18:53:59 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

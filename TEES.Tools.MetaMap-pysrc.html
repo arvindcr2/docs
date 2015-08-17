@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>TEES.Tools.MetaMap</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TEES-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="TEES-module.html">Package&nbsp;TEES</a> ::
+        <a href="TEES.Tools-module.html">Package&nbsp;Tools</a> ::
+        Module&nbsp;MetaMap
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="TEES.Tools.MetaMap-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="TEES.Tools.MetaMap-module.html">Module TEES.Tools.MetaMap</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt><tt class="py-op">,</tt><tt class="py-name">os</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">xml</tt><tt class="py-op">.</tt><tt class="py-name">etree</tt><tt class="py-op">.</tt><tt class="py-name">cElementTree</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ET</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">shutil</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">subprocess</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tempfile</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">codecs</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">abspath</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">"/.."</tt><tt class="py-op">)</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package TEES.Utils=TEES.Utils-module.html"><a title="TEES.Utils" class="py-name" href="#" onclick="return doclink('link-0', 'Utils', 'link-0');">Utils</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module TEES.Utils.ElementTreeUtils=TEES.Utils.ElementTreeUtils-module.html"><a title="TEES.Utils.ElementTreeUtils" class="py-name" href="#" onclick="return doclink('link-1', 'ElementTreeUtils', 'link-1');">ElementTreeUtils</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">ETUtils</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-2" class="py-name"><a title="TEES.Utils" class="py-name" href="#" onclick="return doclink('link-2', 'Utils', 'link-0');">Utils</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module TEES.Utils.Range=TEES.Utils.Range-module.html"><a title="TEES.Utils.Range" class="py-name" href="#" onclick="return doclink('link-3', 'Range', 'link-3');">Range</a></tt> <tt class="py-keyword">as</tt> <tt id="link-4" class="py-name"><a title="TEES.Utils.Range" class="py-name" href="#" onclick="return doclink('link-4', 'Range', 'link-3');">Range</a></tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name"><a title="TEES.Utils" class="py-name" href="#" onclick="return doclink('link-5', 'Utils', 'link-0');">Utils</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module TEES.Utils.ProgressCounter=TEES.Utils.ProgressCounter-module.html,Class TEES.Utils.ProgressCounter.ProgressCounter=TEES.Utils.ProgressCounter.ProgressCounter-class.html"><a title="TEES.Utils.ProgressCounter
+TEES.Utils.ProgressCounter.ProgressCounter" class="py-name" href="#" onclick="return doclink('link-6', 'ProgressCounter', 'link-6');">ProgressCounter</a></tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name"><a title="TEES.Utils.ProgressCounter
+TEES.Utils.ProgressCounter.ProgressCounter" class="py-name" href="#" onclick="return doclink('link-7', 'ProgressCounter', 'link-6');">ProgressCounter</a></tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="convert"></a><div id="convert-def"><a name="L14"></a><tt class="py-lineno"> 14</tt> <a class="py-toggle" href="#" id="convert-toggle" onclick="return toggle('convert');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Tools.MetaMap-module.html#convert">convert</a><tt class="py-op">(</tt><tt class="py-param">metamapEl</tt><tt class="py-op">,</tt> <tt class="py-param">sentenceEl</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="convert-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="convert-expanded"><a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-docstring">    Convert MetaMap XML into phrase-elements</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">    <tt class="py-name">newMetamapEl</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">Element</tt><tt class="py-op">(</tt><tt class="py-string">"metamap"</tt><tt class="py-op">)</tt> <tt class="py-comment"># make a new metamap element</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">    <tt class="py-name">utteranceCount</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">utterance</tt> <tt class="py-keyword">in</tt> <tt class="py-name">metamapEl</tt><tt class="py-op">.</tt><tt class="py-name">getiterator</tt><tt class="py-op">(</tt><tt class="py-string">"Utterance"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># process all utterances (sentences)</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">        <tt class="py-name">utteranceCount</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-comment">#print "UT:", utterance.find("UttText").text</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt class="py-name">uttOffsetBegin</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">utterance</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"UttStartPos"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">phrase</tt> <tt class="py-keyword">in</tt> <tt class="py-name">utterance</tt><tt class="py-op">.</tt><tt class="py-name">getiterator</tt><tt class="py-op">(</tt><tt class="py-string">"Phrase"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># process all phrases for each utterance</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">            <tt class="py-comment">#print "Phrase:", phrase.find("PhraseText").text</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">            <tt class="py-name">phraseEl</tt> <tt class="py-op">=</tt> <tt class="py-name">ET</tt><tt class="py-op">.</tt><tt class="py-name">Element</tt><tt class="py-op">(</tt><tt class="py-string">"phrase"</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">            <tt class="py-name">phraseOffset</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">phrase</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"PhraseStartPos"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">phrase</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"PhraseStartPos"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> <tt class="py-op">+</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">phrase</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"PhraseLength"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">            <tt class="py-name">phraseOffset</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">phraseOffset</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">-</tt> <tt class="py-name">uttOffsetBegin</tt><tt class="py-op">,</tt> <tt class="py-name">phraseOffset</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">-</tt> <tt class="py-name">uttOffsetBegin</tt><tt class="py-op">]</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">            <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"charOffset"</tt><tt class="py-op">,</tt> <tt id="link-8" class="py-name"><a title="TEES.Utils.Range" class="py-name" href="#" onclick="return doclink('link-8', 'Range', 'link-3');">Range</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function TEES.Utils.Range.tuplesToCharOffset()=TEES.Utils.Range-module.html#tuplesToCharOffset"><a title="TEES.Utils.Range.tuplesToCharOffset" class="py-name" href="#" onclick="return doclink('link-9', 'tuplesToCharOffset', 'link-9');">tuplesToCharOffset</a></tt><tt class="py-op">(</tt><tt class="py-name">phraseOffset</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">            <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"text"</tt><tt class="py-op">,</tt> <tt class="py-name">phrase</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"PhraseText"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">candidate</tt> <tt class="py-keyword">in</tt> <tt class="py-name">phrase</tt><tt class="py-op">.</tt><tt class="py-name">getiterator</tt><tt class="py-op">(</tt><tt class="py-string">"Candidate"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> <tt class="py-comment"># process first candidate of each phrase</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">                <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"score"</tt><tt class="py-op">,</tt> <tt class="py-name">candidate</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"CandidateScore"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">                <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"cui"</tt><tt class="py-op">,</tt> <tt class="py-name">candidate</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"CandidateCUI"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">                <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"matched"</tt><tt class="py-op">,</tt> <tt class="py-name">candidate</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"CandidateMatched"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">                <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"preferred"</tt><tt class="py-op">,</tt> <tt class="py-name">candidate</tt><tt class="py-op">.</tt><tt class="py-name">find</tt><tt class="py-op">(</tt><tt class="py-string">"CandidatePreferred"</tt><tt class="py-op">)</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">                <tt class="py-name">semTypes</tt> <tt class="py-op">=</tt> <tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">semType</tt> <tt class="py-keyword">in</tt> <tt class="py-name">candidate</tt><tt class="py-op">.</tt><tt class="py-name">getiterator</tt><tt class="py-op">(</tt><tt class="py-string">"SemType"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">                    <tt class="py-name">semTypes</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method TEES.Core.Model.Model.add()=TEES.Core.Model.Model-class.html#add,Variable TEES.Utils.STFormat.Scores.add=TEES.Utils.STFormat.Scores-module.html#add"><a title="TEES.Core.Model.Model.add
+TEES.Utils.STFormat.Scores.add" class="py-name" href="#" onclick="return doclink('link-10', 'add', 'link-10');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">semType</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">                <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"semTypes"</tt><tt class="py-op">,</tt> <tt class="py-string">","</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">sorted</tt><tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">semTypes</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                <tt class="py-name">sources</tt> <tt class="py-op">=</tt> <tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">source</tt> <tt class="py-keyword">in</tt> <tt class="py-name">candidate</tt><tt class="py-op">.</tt><tt class="py-name">getiterator</tt><tt class="py-op">(</tt><tt class="py-string">"Source"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                    <tt class="py-name">sources</tt><tt class="py-op">.</tt><tt id="link-11" class="py-name"><a title="TEES.Core.Model.Model.add
+TEES.Utils.STFormat.Scores.add" class="py-name" href="#" onclick="return doclink('link-11', 'add', 'link-10');">add</a></tt><tt class="py-op">(</tt><tt class="py-name">source</tt><tt class="py-op">.</tt><tt class="py-name">text</tt><tt class="py-op">)</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt class="py-name">set</tt><tt class="py-op">(</tt><tt class="py-string">"sources"</tt><tt class="py-op">,</tt> <tt class="py-string">","</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">sorted</tt><tt class="py-op">(</tt><tt class="py-name">list</tt><tt class="py-op">(</tt><tt class="py-name">sources</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">phraseEl</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method TEES.Core.Model.Model.get()=TEES.Core.Model.Model-class.html#get,Function TEES.Utils.Parameters.get()=TEES.Utils.Parameters-module.html#get"><a title="TEES.Core.Model.Model.get
+TEES.Utils.Parameters.get" class="py-name" href="#" onclick="return doclink('link-12', 'get', 'link-12');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">"matched"</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> <tt class="py-comment"># include only matched phrases as new elements</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                <tt class="py-name">newMetamapEl</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">phraseEl</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">            <tt class="py-comment">#print ET.tostring(phraseEl, "utf-8")</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">     </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">utteranceCount</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Warning, sentence"</tt><tt class="py-op">,</tt> <tt class="py-name">sentenceEl</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="TEES.Core.Model.Model.get
+TEES.Utils.Parameters.get" class="py-name" href="#" onclick="return doclink('link-13', 'get', 'link-12');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">"id"</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-string">"has"</tt><tt class="py-op">,</tt> <tt class="py-name">utteranceCount</tt><tt class="py-op">,</tt> <tt class="py-string">"utterances"</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">newMetamapEl</tt> </tt>
+</div><a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                 </tt>
+<a name="process"></a><div id="process-def"><a name="L53"></a><tt class="py-lineno"> 53</tt> <a class="py-toggle" href="#" id="process-toggle" onclick="return toggle('process');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="TEES.Tools.MetaMap-module.html#process">process</a><tt class="py-op">(</tt><tt class="py-param">input</tt><tt class="py-op">,</tt> <tt class="py-param">output</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">preprocess</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt> <tt class="py-param">debug</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="process-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="process-expanded"><a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    Run MetaMap.</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt>     </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">    <tt class="py-name">counter</tt> <tt class="py-op">=</tt> <tt id="link-14" class="py-name"><a title="TEES.Utils.ProgressCounter
+TEES.Utils.ProgressCounter.ProgressCounter" class="py-name" href="#" onclick="return doclink('link-14', 'ProgressCounter', 'link-6');">ProgressCounter</a></tt><tt class="py-op">(</tt><tt class="py-name">id</tt><tt class="py-op">=</tt><tt class="py-string">"MetaMap"</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">     </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">    <tt class="py-comment"># Create working directory</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt id="link-15" class="py-name" targets="Function TEES.train.workdir()=TEES.train-module.html#workdir"><a title="TEES.train.workdir" class="py-name" href="#" onclick="return doclink('link-15', 'workdir', 'link-15');">workdir</a></tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkdtemp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">     </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">    <tt class="py-name">outWriter</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">output</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-name">outWriter</tt> <tt class="py-op">=</tt> <tt class="py-name">ETUtils</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Class TEES.Utils.ElementTreeUtils.ETWriter=TEES.Utils.ElementTreeUtils.ETWriter-class.html"><a title="TEES.Utils.ElementTreeUtils.ETWriter" class="py-name" href="#" onclick="return doclink('link-16', 'ETWriter', 'link-16');">ETWriter</a></tt><tt class="py-op">(</tt><tt class="py-name">output</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">     </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">    <tt class="py-comment"># Loop iteratively over elements</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt class="py-name">skip</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">    <tt class="py-keyword">for</tt> <tt class="py-name">event</tt><tt class="py-op">,</tt> <tt class="py-name">element</tt> <tt class="py-keyword">in</tt> <tt class="py-name">ETUtils</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Function TEES.Utils.ElementTreeUtils.ETIteratorFromObj()=TEES.Utils.ElementTreeUtils-module.html#ETIteratorFromObj"><a title="TEES.Utils.ElementTreeUtils.ETIteratorFromObj" class="py-name" href="#" onclick="return doclink('link-17', 'ETIteratorFromObj', 'link-17');">ETIteratorFromObj</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-string">"start"</tt><tt class="py-op">,</tt> <tt class="py-string">"end"</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">event</tt> <tt class="py-op">==</tt> <tt class="py-string">"start"</tt><tt class="py-op">:</tt> <tt class="py-comment"># element start message, element may not be fully read yet</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">element</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt> <tt class="py-op">==</tt> <tt class="py-string">"sentence"</tt><tt class="py-op">:</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-name">sentence</tt> <tt class="py-op">=</tt> <tt class="py-name">element</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                <tt class="py-name">counter</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method TEES.Utils.Libraries.progressbar.Bar.update()=TEES.Utils.Libraries.progressbar.Bar-class.html#update,Method TEES.Utils.Libraries.progressbar.ETA.update()=TEES.Utils.Libraries.progressbar.ETA-class.html#update,Method TEES.Utils.Libraries.progressbar.FileTransferSpeed.update()=TEES.Utils.Libraries.progressbar.FileTransferSpeed-class.html#update,Method TEES.Utils.Libraries.progressbar.Percentage.update()=TEES.Utils.Libraries.progressbar.Percentage-class.html#update,Method TEES.Utils.Libraries.progressbar.ProgressBar.update()=TEES.Utils.Libraries.progressbar.ProgressBar-class.html#update,Method TEES.Utils.Libraries.progressbar.ProgressBarWidget.update()=TEES.Utils.Libraries.progressbar.ProgressBarWidget-class.html#update,Method TEES.Utils.Libraries.progressbar.ProgressBarWidgetHFill.update()=TEES.Utils.Libraries.progressbar.ProgressBarWidgetHFill-class.html#update,Method TEES.Utils.Libraries.progressbar.ReverseBar.update()=TEES.Utils.Libraries.progressbar.ReverseBar-class.html#update,Method TEES.Utils.Libraries.progressbar.RotatingMarker.update()=TEES.Utils.Libraries.progressbar.RotatingMarker-class.html#update,Method TEES.Utils.ProgressCounter.ProgressCounter.update()=TEES.Utils.ProgressCounter.ProgressCounter-class.html#update"><a title="TEES.Utils.Libraries.progressbar.Bar.update
+TEES.Utils.Libraries.progressbar.ETA.update
+TEES.Utils.Libraries.progressbar.FileTransferSpeed.update
+TEES.Utils.Libraries.progressbar.Percentage.update
+TEES.Utils.Libraries.progressbar.ProgressBar.update
+TEES.Utils.Libraries.progressbar.ProgressBarWidget.update
+TEES.Utils.Libraries.progressbar.ProgressBarWidgetHFill.update
+TEES.Utils.Libraries.progressbar.ReverseBar.update
+TEES.Utils.Libraries.progressbar.RotatingMarker.update
+TEES.Utils.ProgressCounter.ProgressCounter.update" class="py-name" href="#" onclick="return doclink('link-18', 'update', 'link-18');">update</a></tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-string">"Processing MetaMap ("</tt><tt class="py-op">+</tt><tt class="py-name">sentence</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="TEES.Core.Model.Model.get
+TEES.Utils.Parameters.get" class="py-name" href="#" onclick="return doclink('link-19', 'get', 'link-12');">get</a></tt><tt class="py-op">(</tt><tt class="py-string">"id"</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-string">"): "</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-comment"># Run metamap for the sentence element</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-name">element</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt> <tt class="py-op">==</tt> <tt class="py-string">"metamap"</tt><tt class="py-op">:</tt> <tt class="py-comment"># skip the metamap element to remove the original one</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt class="py-name">skip</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">skip</tt> <tt class="py-keyword">and</tt> <tt class="py-name">output</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                <tt class="py-name">outWriter</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Method TEES.Utils.ElementTreeUtils.ETWriter.begin()=TEES.Utils.ElementTreeUtils.ETWriter-class.html#begin"><a title="TEES.Utils.ElementTreeUtils.ETWriter.begin" class="py-name" href="#" onclick="return doclink('link-20', 'begin', 'link-20');">begin</a></tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">         </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-keyword">elif</tt> <tt class="py-name">event</tt> <tt class="py-op">==</tt> <tt class="py-string">"end"</tt><tt class="py-op">:</tt> <tt class="py-comment"># element is fully read in memory</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">skip</tt> <tt class="py-keyword">and</tt> <tt class="py-name">output</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">outWriter</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method TEES.Utils.ElementTreeUtils.ETWriter.end()=TEES.Utils.ElementTreeUtils.ETWriter-class.html#end"><a title="TEES.Utils.ElementTreeUtils.ETWriter.end" class="py-name" href="#" onclick="return doclink('link-21', 'end', 'link-21');">end</a></tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line"> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">element</tt><tt class="py-op">.</tt><tt class="py-name">tag</tt> <tt class="py-op">==</tt> <tt class="py-string">"metamap"</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                <tt class="py-name">skip</tt> <tt class="py-op">=</tt> <tt class="py-name">False</tt> <tt class="py-comment"># write elements again after this one</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">preprocess</tt><tt class="py-op">:</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                    <tt class="py-name">element</tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name" targets="Method TEES.Detectors.Preprocessor.Preprocessor.convert()=TEES.Detectors.Preprocessor.Preprocessor-class.html#convert,Function TEES.Tools.MetaMap.convert()=TEES.Tools.MetaMap-module.html#convert,Function TEES.Utils.Convert.convertBioNLP.convert()=TEES.Utils.Convert.convertBioNLP-module.html#convert,Function TEES.Utils.InteractionXML.ConvertPMC.convert()=TEES.Utils.InteractionXML.ConvertPMC-module.html#convert"><a title="TEES.Detectors.Preprocessor.Preprocessor.convert
+TEES.Tools.MetaMap.convert
+TEES.Utils.Convert.convertBioNLP.convert
+TEES.Utils.InteractionXML.ConvertPMC.convert" class="py-name" href="#" onclick="return doclink('link-22', 'convert', 'link-22');">convert</a></tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">,</tt> <tt class="py-name">sentence</tt><tt class="py-op">)</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                <tt class="py-name">outWriter</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method TEES.Core.IdSet.IdSet.write()=TEES.Core.IdSet.IdSet-class.html#write,Class Method TEES.ExampleWriters.BioTextExampleWriter.BioTextExampleWriter.write()=TEES.ExampleWriters.BioTextExampleWriter.BioTextExampleWriter-class.html#write,Method TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter.write()=TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter-class.html#write,Method TEES.Utils.ElementTreeUtils.ETWriter.write()=TEES.Utils.ElementTreeUtils.ETWriter-class.html#write,Function TEES.Utils.ElementTreeUtils.write()=TEES.Utils.ElementTreeUtils-module.html#write,Method TEES.Utils.Stream.StreamModifier.write()=TEES.Utils.Stream.StreamModifier-class.html#write"><a title="TEES.Core.IdSet.IdSet.write
+TEES.ExampleWriters.BioTextExampleWriter.BioTextExampleWriter.write
+TEES.ExampleWriters.SentenceExampleWriter.SentenceExampleWriter.write
+TEES.Utils.ElementTreeUtils.ETWriter.write
+TEES.Utils.ElementTreeUtils.write
+TEES.Utils.Stream.StreamModifier.write" class="py-name" href="#" onclick="return doclink('link-23', 'write', 'link-23');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">element</tt><tt class="py-op">)</tt> <tt class="py-comment"># insert the new metamap element into the output stream</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">         </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">output</tt> <tt class="py-op">!=</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Writing output to"</tt><tt class="py-op">,</tt> <tt class="py-name">output</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">        <tt class="py-name">outWriter</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Method TEES.Core.Model.Model.close()=TEES.Core.Model.Model-class.html#close,Method TEES.Utils.ElementTreeUtils.ETWriter.close()=TEES.Utils.ElementTreeUtils.ETWriter-class.html#close"><a title="TEES.Core.Model.Model.close
+TEES.Utils.ElementTreeUtils.ETWriter.close" class="py-name" href="#" onclick="return doclink('link-24', 'close', 'link-24');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-name">ETUtils</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Function TEES.Utils.ElementTreeUtils.encodeNewlines()=TEES.Utils.ElementTreeUtils-module.html#encodeNewlines"><a title="TEES.Utils.ElementTreeUtils.encodeNewlines" class="py-name" href="#" onclick="return doclink('link-25', 'encodeNewlines', 'link-25');">encodeNewlines</a></tt><tt class="py-op">(</tt><tt class="py-name">output</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">debug</tt><tt class="py-op">:</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Work directory preserved for debugging at"</tt><tt class="py-op">,</tt> <tt id="link-26" class="py-name"><a title="TEES.train.workdir" class="py-name" href="#" onclick="return doclink('link-26', 'workdir', 'link-15');">workdir</a></tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-name">shutil</tt><tt class="py-op">.</tt><tt class="py-name">rmtree</tt><tt class="py-op">(</tt><tt id="link-27" class="py-name"><a title="TEES.train.workdir" class="py-name" href="#" onclick="return doclink('link-27', 'workdir', 'link-15');">workdir</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">output</tt> </tt>
+</div><a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">     </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt><tt class="py-op">==</tt><tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">    <tt class="py-keyword">from</tt> <tt class="py-name">optparse</tt> <tt class="py-keyword">import</tt> <tt class="py-name">OptionParser</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">    <tt class="py-comment"># Import Psyco if available</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">    <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-keyword">import</tt> <tt class="py-name">psyco</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-name">psyco</tt><tt class="py-op">.</tt><tt class="py-name">full</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Found Psyco, using"</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">    <tt class="py-keyword">except</tt> <tt class="py-name">ImportError</tt><tt class="py-op">:</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-op">&gt;&gt;</tt> <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">stderr</tt><tt class="py-op">,</tt> <tt class="py-string">"Psyco not installed"</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt class="py-name">optparser</tt> <tt class="py-op">=</tt> <tt class="py-name">OptionParser</tt><tt class="py-op">(</tt><tt class="py-name">description</tt><tt class="py-op">=</tt><tt class="py-string">"MetaMap processing"</tt><tt class="py-op">)</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">    <tt class="py-name">optparser</tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-i"</tt><tt class="py-op">,</tt> <tt class="py-string">"--input"</tt><tt class="py-op">,</tt> <tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"input"</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">"Corpus in interaction xml format"</tt><tt class="py-op">,</tt> <tt class="py-name">metavar</tt><tt class="py-op">=</tt><tt class="py-string">"FILE"</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">    <tt class="py-name">optparser</tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-o"</tt><tt class="py-op">,</tt> <tt class="py-string">"--output"</tt><tt class="py-op">,</tt> <tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"output"</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">"Output file in interaction xml format."</tt><tt class="py-op">)</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-name">optparser</tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-n"</tt><tt class="py-op">,</tt> <tt class="py-string">"--no_preprocess"</tt><tt class="py-op">,</tt> <tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-name">action</tt><tt class="py-op">=</tt><tt class="py-string">"store_true"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"no_preprocess"</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">"Preprocess MetaMap output"</tt><tt class="py-op">)</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-name">optparser</tt><tt class="py-op">.</tt><tt class="py-name">add_option</tt><tt class="py-op">(</tt><tt class="py-string">"-d"</tt><tt class="py-op">,</tt> <tt class="py-string">"--debug"</tt><tt class="py-op">,</tt> <tt class="py-name">default</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">,</tt> <tt class="py-name">action</tt><tt class="py-op">=</tt><tt class="py-string">"store_true"</tt><tt class="py-op">,</tt> <tt class="py-name">dest</tt><tt class="py-op">=</tt><tt class="py-string">"debug"</tt><tt class="py-op">,</tt> <tt class="py-name">help</tt><tt class="py-op">=</tt><tt class="py-string">"Debug mode"</tt><tt class="py-op">)</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">    <tt class="py-op">(</tt><tt class="py-name">options</tt><tt class="py-op">,</tt> <tt class="py-name">args</tt><tt class="py-op">)</tt> <tt class="py-op">=</tt> <tt class="py-name">optparser</tt><tt class="py-op">.</tt><tt class="py-name">parse_args</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">     </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt id="link-28" class="py-name" targets="Method TEES.Detectors.Preprocessor.Preprocessor.process()=TEES.Detectors.Preprocessor.Preprocessor-class.html#process,Method TEES.Detectors.ToolChain.ToolChain.process()=TEES.Detectors.ToolChain.ToolChain-class.html#process,Function TEES.Tools.MetaMap.process()=TEES.Tools.MetaMap-module.html#process,Function TEES.Utils.STFormat.Equiv.process()=TEES.Utils.STFormat.Equiv-module.html#process,Function TEES.Utils.Upload.process()=TEES.Utils.Upload-module.html#process"><a title="TEES.Detectors.Preprocessor.Preprocessor.process
+TEES.Detectors.ToolChain.ToolChain.process
+TEES.Tools.MetaMap.process
+TEES.Utils.STFormat.Equiv.process
+TEES.Utils.Upload.process" class="py-name" href="#" onclick="return doclink('link-28', 'process', 'link-28');">process</a></tt><tt class="py-op">(</tt><tt class="py-name">input</tt><tt class="py-op">=</tt><tt class="py-name">options</tt><tt class="py-op">.</tt><tt class="py-name">input</tt><tt class="py-op">,</tt> <tt class="py-name">output</tt><tt class="py-op">=</tt><tt class="py-name">options</tt><tt class="py-op">.</tt><tt class="py-name">output</tt><tt class="py-op">,</tt> <tt class="py-name">preprocess</tt><tt class="py-op">=</tt><tt class="py-keyword">not</tt> <tt class="py-name">options</tt><tt class="py-op">.</tt><tt class="py-name">no_preprocess</tt><tt class="py-op">,</tt> <tt class="py-name">debug</tt><tt class="py-op">=</tt><tt class="py-name">options</tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">)</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="TEES-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Aug 10 18:54:00 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
